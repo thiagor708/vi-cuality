@@ -10,7 +10,7 @@
     <!-- Encabezado con logo, título y menú. -->
     <header>
         <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
-            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+            <img src="../imagenes/vicuality.png" alt="Logotipo de ViCuality" width="70" height="70">
         </a>
         <h1>Procesos de desarrollo de software</h1>
         <!-- Botón que muestra los enlaces. -->
@@ -125,29 +125,29 @@
                 <article class="agile-summary-card agile-principles">
                     <h3>Los 12 principios</h3>
                     <ul>
-                        <li>Satisfacción del cliente</li>
-                        <li>Bienvenidos los cambios</li>
-                        <li>Entrega frecuente</li>
-                        <li>Trabajo conjunto</li>
-                        <li>Individuos motivados</li>
-                        <li>Conversación cara a cara</li>
-                        <li>Software funcionando</li>
-                        <li>Desarrollo sostenible</li>
-                        <li>Excelencia técnica</li>
-                        <li>Simplicidad</li>
-                        <li>Equipos autoorganizados</li>
-                        <li>Reflexión periódica</li>
+                        <li><details name="agile-principles" open><summary>Satisfacción del cliente</summary><p>Nuestra mayor prioridad es satisfacer al cliente mediante la entrega temprana y continua de software con valor.</p></details></li>
+                        <li><details name="agile-principles"><summary>Aceptar los cambios</summary><p>Aceptamos que los requisitos cambien, incluso en etapas tardías del desarrollo. Los procesos ágiles aprovechan el cambio para proporcionar una ventaja competitiva.</p></details></li>
+                        <li><details name="agile-principles"><summary>Entregas frecuentes</summary><p>Entregamos software funcional frecuentemente, entre dos semanas y dos meses, con preferencia a los periodos de tiempo más cortos.</p></details></li>
+                        <li><details name="agile-principles"><summary>Colaboración diaria</summary><p>Los responsables del negocio y los desarrolladores trabajamos juntos de forma cotidiana a lo largo de todo el proyecto.</p></details></li>
+                        <li><details name="agile-principles"><summary>Individuos motivados</summary><p>Los proyectos se desarrollan en torno a personas motivadas. Hay que darles el entorno y el apoyo que necesitan, y confiar en su ejecución.</p></details></li>
+                        <li><details name="agile-principles"><summary>Conversación cara a cara</summary><p>La forma más efectiva de compartir información con el equipo es la conversación directa, cara a cara.</p></details></li>
+                        <li><details name="agile-principles"><summary>Software funcionando</summary><p>El software funcionando es la medida principal de progreso.</p></details></li>
+                        <li><details name="agile-principles"><summary>Desarrollo sostenible</summary><p>Los promotores, desarrolladores y usuarios debemos mantener un ritmo constante de manera indefinida.</p></details></li>
+                        <li><details name="agile-principles"><summary>Excelencia técnica</summary><p>La atención continua a la excelencia técnica y al buen diseño mejora la agilidad.</p></details></li>
+                        <li><details name="agile-principles"><summary>Simplicidad</summary><p>La simplicidad, o el arte de maximizar la cantidad de trabajo no realizado, es esencial.</p></details></li>
+                        <li><details name="agile-principles"><summary>Equipos autoorganizados</summary><p>Las mejores arquitecturas, requisitos y diseños emergen de equipos que se organizan por sí mismos.</p></details></li>
+                        <li><details name="agile-principles"><summary>Reflexión y ajuste</summary><p>A intervalos regulares, el equipo reflexiona sobre cómo ser más efectivo para ajustar y perfeccionar su comportamiento en consecuencia.</p></details></li>
                     </ul>
                 </article>
                 <div class="agile-values-column">
                     <article class="agile-summary-card agile-values">
                         <h3>Los 4 valores fundamentales</h3>
-                        <ul>
-                            <li>Individuos e interacciones sobre procesos y herramientas</li>
-                            <li>Software funcionando sobre documentación extensiva</li>
-                            <li>Colaboración con el cliente sobre negociación contractual</li>
-                            <li>Respuesta ante el cambio sobre seguir un plan</li>
-                        </ul>
+                        <div class="agile-values-grid">
+                            <article><h4>Individuos e interacciones</h4><p>Sobre procesos y herramientas: las personas y su capacidad de comunicarse son las que resuelven los problemas.</p></article>
+                            <article><h4>Software funcionando</h4><p>Sobre documentación extensiva: el valor real está en mostrar un producto que funcione, con documentación justa y necesaria.</p></article>
+                            <article><h4>Colaboración con el cliente</h4><p>Sobre negociación contractual: el cliente es un socio estratégico para construir lo que realmente necesita.</p></article>
+                            <article><h4>Respuesta ante el cambio</h4><p>Sobre seguir un plan: adaptarse a las necesidades cambiantes es más valioso que seguir una ruta obsoleta.</p></article>
+                        </div>
                     </article>
                     <p>Las metodologías ágiles dividen los proyectos en partes pequeñas para entregar resultados rápidos y adaptarse a los cambios.</p>
                     <strong>Algunas de las principales metodologías ágiles son:</strong>
@@ -298,6 +298,21 @@
         <img alt="">
     </dialog>
     <script>
+        // Hace que cada principio abra su explicación y cierre los demás.
+        const agilePrincipleDetails = Array.from(document.querySelectorAll(".agile-principles details"));
+        agilePrincipleDetails.forEach(detail => {
+            const summary = detail.querySelector("summary");
+            summary.setAttribute("aria-expanded", detail.open);
+            summary.addEventListener("click", event => {
+                event.preventDefault();
+                const shouldOpen = !detail.open;
+                agilePrincipleDetails.forEach(item => {
+                    item.open = item === detail && shouldOpen;
+                    item.querySelector("summary").setAttribute("aria-expanded", item.open);
+                });
+            });
+        });
+
         // Amplía las ilustraciones sin cambiar el modelo seleccionado.
         const imageLightbox = document.getElementById("imageLightbox");
         const lightboxImage = imageLightbox.querySelector("img");

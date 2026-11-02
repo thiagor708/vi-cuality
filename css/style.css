@@ -191,9 +191,9 @@ main {
 
 .process-agile-summary-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
     gap: 24px;
-    align-items: stretch;
+    align-items: start;
 }
 
 .agile-summary-card {
@@ -227,12 +227,66 @@ main {
 
 .agile-principles ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
 }
 
 .agile-principles li {
-    padding: 6px 9px;
+    min-width: 0;
+}
+
+.agile-principles details {
+    overflow: hidden;
     border-radius: 6px;
+    color: #fff;
     background: #3467ed;
+}
+
+.agile-principles summary {
+    position: relative;
+    display: block;
+    min-height: 28px;
+    padding: 6px 25px 6px 9px;
+    font-size: clamp(10px, 1vw, 13px);
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    list-style: none;
+}
+
+.agile-principles summary:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+.agile-principles summary::-webkit-details-marker {
+    display: none;
+}
+
+.agile-principles summary::after {
+    content: "⌄";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-55%);
+    color: #07142f;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.agile-principles details[open] summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.agile-principles details[open] summary::after {
+    content: "⌃";
+}
+
+.agile-principles details p {
+    margin: 0;
+    padding: 7px 9px 9px;
+    color: #eef7ff;
+    font-size: clamp(9px, 0.85vw, 11px);
+    line-height: 1.35;
 }
 
 .agile-values-column {
@@ -243,20 +297,37 @@ main {
     line-height: 1.4;
 }
 
-.agile-values ul {
+.agile-values-grid {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 14px;
 }
 
-.agile-values li {
+.agile-values-grid article {
     display: grid;
-    min-height: 70px;
-    place-items: center;
-    padding: 10px;
+    align-content: start;
+    min-height: 100px;
+    gap: 5px;
+    padding: 9px;
     border-radius: 7px;
     background: #31b8ff;
-    font-size: 12px;
-    font-weight: 700;
+    color: #fff;
     text-align: center;
+}
+
+.agile-values-grid h4 {
+    margin: 0;
+    font-size: clamp(10px, 1vw, 13px);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.agile-values-grid p {
+    margin: 0;
+    color: #f2f8ff;
+    font-size: 12px;
+    line-height: 1.3;
 }
 
 .agile-values-column > strong {
@@ -996,6 +1067,41 @@ body.techniques-page header h1 {
     text-transform: uppercase;
     text-align: center;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 15px rgba(176, 206, 255, 0.15);
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.box-card:hover,
+.box-card[aria-expanded="true"] {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 0 22px rgba(73, 201, 255, 0.3);
+}
+
+.box-card:focus-visible {
+    outline: 3px solid #49c9ff;
+    outline-offset: 4px;
+}
+
+.box-information {
+    width: 100%;
+}
+
+.box-description {
+    max-width: 500px;
+    margin: 12px auto 0;
+    padding: 14px 18px;
+    border: 1px solid rgba(73, 201, 255, 0.65);
+    border-radius: 12px;
+    color: #edfaff;
+    background: rgba(10, 18, 24, 0.88);
+    font-size: clamp(14px, 1vw, 17px);
+    line-height: 1.5;
+    box-shadow: 0 0 14px rgba(73, 201, 255, 0.12);
+}
+
+.box-description[hidden] {
+    display: none;
 }
 
 .box-card.box-white {
@@ -1598,6 +1704,39 @@ body.process-page {
         gap: 16px;
     }
 
+    .process-agile-summary-grid {
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+        gap: 10px;
+    }
+
+    .agile-principles ul {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .agile-principles summary {
+        padding-left: 7px;
+        font-size: 10px;
+    }
+
+    .agile-principles details p {
+        font-size: 9px;
+    }
+
+    .agile-values-grid {
+        gap: 6px;
+        padding: 10px;
+    }
+
+    .agile-values-grid article {
+        min-height: 98px;
+        padding: 7px;
+    }
+
+    .agile-values-grid p {
+        font-size: 10px;
+    }
+
     .process-agile-toolbar {
         flex-direction: column-reverse;
         align-items: flex-start;
@@ -1743,6 +1882,27 @@ body.process-page {
 
     .models-title {
         font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .process-agile-summary-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .agile-principles summary {
+        font-size: 12px;
+    }
+
+    .agile-principles details p {
+        font-size: 11px;
+    }
+
+    .agile-values-grid article {
+        min-height: 105px;
+    }
+
+    .agile-values-grid p {
+        font-size: 11px;
     }
 
     .model-tabs {

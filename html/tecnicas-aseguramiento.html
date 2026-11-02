@@ -12,7 +12,7 @@
 <body class="techniques-page">
     <header>
         <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
-            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+            <img src="../imagenes/vicuality.png" alt="Logotipo de ViCuality" width="70" height="70">
         </a>
         <h1>Gestion de la calidad del software</h1>
         <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
@@ -148,11 +148,27 @@
         <!-- Diferencia visual entre las pruebas de caja blanca y caja negra. -->
         <aside class="boxes-panel" aria-label="Información sobre cajas de prueba">
             <h3>Información sobre cajas</h3>
-            <div class="box-card box-white">Caja blanca – Tipos de prueba</div>
-            <div class="box-card box-black">Caja negra – Tipos de prueba</div>
+            <div class="box-information">
+                <button class="box-card box-white" type="button" aria-expanded="false" aria-controls="white-box-information">Caja blanca – Tipos de prueba</button>
+                <p class="box-description" id="white-box-information" hidden>Caja blanca: Es un sistema que permite conocer y analizar su funcionamiento interno, observando los procesos y las operaciones que realiza para obtener un resultado.</p>
+            </div>
+            <div class="box-information">
+                <button class="box-card box-black" type="button" aria-expanded="false" aria-controls="black-box-information">Caja negra – Tipos de prueba</button>
+                <p class="box-description" id="black-box-information" hidden>Caja negra: Es un sistema que permite observar los datos que ingresan y los resultados que se obtienen, sin conocer cómo funciona internamente.</p>
+            </div>
         </aside>
     </main>
 
+    <script>
+        document.querySelectorAll(".box-card").forEach(button => {
+            button.addEventListener("click", () => {
+                const information = document.getElementById(button.getAttribute("aria-controls"));
+                const isExpanded = button.getAttribute("aria-expanded") === "true";
+                button.setAttribute("aria-expanded", String(!isExpanded));
+                information.hidden = isExpanded;
+            });
+        });
+    </script>
     <script src="../js/script.js"></script>
 </body>
 </html>
