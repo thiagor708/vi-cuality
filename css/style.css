@@ -1,0 +1,3577 @@
+/* Reset general del sitio para que los elementos se comporten igual en todos los navegadores. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ajusta la alineación del título del encabezado con el logo. */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Define el fondo oscuro y la tipografía base de la página. */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #05090c;
+}
+
+body.home-page {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Coloca la imagen solo en la página principal. */
+body.home-page::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    z-index: -1;
+    background-image: url("../imagenes/FondoWeb.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Barra superior del sitio. */
+header {
+    background: #05090c;
+    color: white;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid #222;
+}
+
+/* Botón que abre y cierra el menú. */
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 3px 0;
+}
+
+/* Líneas que forman el ícono hamburguesa. */
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+/* Menú oculto que aparece debajo del botón. */
+nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 14px;
+    width: min(280px, calc(100vw - 28px));
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding: 4px 0;
+    z-index: 2;
+}
+
+/* Muestra los enlaces en forma vertical. */
+nav.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Carpeta que contiene las opciones de gestión de calidad. */
+.menu-folder {
+    margin: 6px 0;
+}
+
+/* Estilo del botón que abre un submenú dentro del menú principal. */
+.menu-folder-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background: #05090c;
+    border: 3px solid white;
+    border-radius: 24px;
+    box-shadow:
+        0 0 5px white,
+        0 0 10px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding: 7px 10px;
+}
+
+.menu-folder-toggle:hover {
+    background: #1c2730;
+}
+
+.menu-folder.open .menu-folder-toggle span {
+    transform: rotate(90deg);
+}
+
+/* Oculta el submenú por defecto y lo muestra cuando la carpeta está abierta. */
+.submenu {
+    display: none;
+    flex-direction: column;
+    padding-left: 12px;
+}
+
+.menu-folder.open .submenu {
+    display: flex;
+}
+
+/* Estilo de cada enlace del menú. */
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    background: #05090c;
+    border: 3px solid white;
+    border-radius: 24px;
+    box-shadow:
+        0 0 5px white,
+        0 0 10px rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    padding: 7px 10px;
+    margin: 6px 0;
+}
+
+.submenu a {
+    margin: 3px 0;
+    border-width: 2px;
+    font-size: 11px;
+    padding: 6px 8px;
+}
+
+/* Cambia el fondo cuando se pasa el cursor. */
+nav a:hover {
+    background: #1c2730;
+}
+
+/* Contenido principal de cada página. */
+main {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Estilos para el resumen y las pestañas de metodologías ágiles. */
+.process-agile-summary,
+.process-agile-details {
+    width: min(100%, 1100px);
+    margin: 42px auto 0;
+}
+
+.process-agile-summary > h2 {
+    margin-bottom: 20px;
+    color: #f4f8ff;
+    font-size: clamp(28px, 4vw, 42px);
+    text-align: left;
+    text-shadow: 0 0 10px rgba(57, 159, 255, 0.8);
+    text-transform: uppercase;
+}
+
+.process-agile-summary-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.agile-summary-card {
+    overflow: hidden;
+    border: 2px solid #286dff;
+    border-radius: 10px;
+    background: #101b35;
+}
+
+.agile-summary-card h3 {
+    padding: 10px 12px;
+    color: #fff;
+    background: #31b8ff;
+    font-size: clamp(18px, 2vw, 24px);
+    text-align: center;
+}
+
+.agile-summary-card ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 14px;
+    list-style: none;
+}
+
+.agile-summary-card li {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.agile-principles ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agile-principles li {
+    padding: 6px 9px;
+    border-radius: 6px;
+    background: #3467ed;
+}
+
+.agile-values-column {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: #f4f8ff;
+    line-height: 1.4;
+}
+
+.agile-values ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.agile-values li {
+    display: grid;
+    min-height: 70px;
+    place-items: center;
+    padding: 10px;
+    border-radius: 7px;
+    background: #31b8ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.agile-values-column > strong {
+    color: #80b7ff;
+    text-align: center;
+}
+
+.process-agile-details {
+    margin-top: 52px;
+}
+
+.process-agile-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.process-agile-toolbar > h2 {
+    margin: 0;
+    color: #f4f8ff;
+    font-size: clamp(28px, 4vw, 42px);
+    text-align: right;
+    text-shadow: 0 0 10px rgba(57, 159, 255, 0.8);
+    text-transform: uppercase;
+}
+
+.process-agile-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.process-agile-tab {
+    min-width: 82px;
+    padding: 7px 12px;
+    border: 1px solid #474747;
+    border-radius: 7px;
+    color: #3472ff;
+    background: #080d11;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.process-agile-tab.active {
+    color: #fff;
+    box-shadow: inset 0 0 0 1px #31b8ff;
+}
+
+.process-agile-tab:focus-visible {
+    outline: 2px solid #80dfff;
+    outline-offset: 3px;
+}
+
+.agile-method-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.agile-method-card {
+    overflow: hidden;
+    border-radius: 9px;
+    color: #fff;
+    background: #3467ed;
+    box-shadow: 0 8px 22px rgba(49, 184, 255, 0.12);
+}
+
+.agile-method-card h3 {
+    display: grid;
+    min-height: 50px;
+    place-items: center;
+    padding: 9px 10px;
+    color: #fff;
+    background: #31b8ff;
+    font-size: clamp(17px, 1.8vw, 22px);
+    line-height: 1.15;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+.agile-method-card ul {
+    display: grid;
+    gap: 12px;
+    margin: 0;
+    padding: 14px 14px 18px 26px;
+}
+
+.agile-method-card li {
+    padding-left: 1px;
+    color: #fff;
+    font-size: clamp(12px, 1.1vw, 14px);
+    line-height: 1.35;
+}
+
+.agile-method-card li::marker {
+    color: #07142f;
+}
+
+.agile-method-card strong {
+    font-weight: 800;
+}
+
+.process-agile-panel[hidden] {
+    display: none;
+}
+
+/* La portada usa el espacio disponible para mantener el pie abajo. */
+.home-page main {
+    flex: 1;
+}
+
+/* Título principal de la página de inicio. */
+.description-title {
+    color: #eaf5ff;
+    font-size: clamp(48px, 8vw, 78px);
+    font-weight: 400;
+    text-align: left;
+    margin: 0 0 45px;
+    text-shadow: 0 0 8px rgba(73, 150, 255, 0.9), 0 0 18px rgba(73, 150, 255, 0.7), 0 0 28px rgba(73, 150, 255, 0.6);
+}
+
+.description-subtitle {
+    color: #edf6ff;
+    font-size: clamp(20px, 2vw, 32px);
+    line-height: 1.3;
+    text-align: left;
+    max-width: 1100px;
+    margin: 0 0 42px;
+    text-shadow: 0 0 8px rgba(73, 150, 255, 0.4);
+}
+
+/* Organiza los accesos principales en una cuadrícula. */
+/* Crea una grilla con los accesos principales de la página de inicio. */
+.home-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: 18px 22px;
+    max-width: 520px;
+    margin-left: 0;
+}
+
+/* Estilo de los botones de acceso de la portada. */
+.home-buttons a,
+.bottom-links a {
+    color: white;
+    text-decoration: none;
+    background: #294b9d;
+    border: 2px solid white;
+    border-radius: 22px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 9px 10px;
+}
+
+.home-buttons a:hover,
+.bottom-links a:hover {
+    background: #4169c5;
+}
+
+/* Enlaces secundarios en los extremos inferiores. */
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 10px 18px;
+}
+
+.bottom-links a {
+    background: rgba(5, 9, 12, 0.75);
+    border-width: 1px;
+    border-radius: 12px;
+    padding: 10px 18px;
+    min-height: auto;
+    font-size: 1.15rem;
+}
+
+/* Centra el título del encabezado y le agrega brillo. */
+header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 32px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px rgba(255,255,255,0.8);
+}
+
+/* Ajusta el tamaño de la imagen del logo. */
+header h1 img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+/* Círculo gris iluminado que rodea al logo. */
+/* Hace que el logo tenga un círculo brillante alrededor para darle un efecto visual. */
+.logo-circle {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9d9d9;
+    border-radius: 50%;
+    box-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px rgba(255, 255, 255, 0.8);
+}
+
+/* Color de la parte "vi" de la marca. */
+.brand-vi {
+    color: white;
+}
+
+/* Adapta los botones a pantallas pequeñas. */
+/* Ajusta el diseño para pantallas pequeñas y mantiene la vista legible. */
+@media (max-width: 600px) {
+    header {
+        padding: 12px 16px;
+    }
+
+    header h1 {
+        font-size: clamp(18px, 5vw, 25px);
+        letter-spacing: clamp(1px, 1vw, 3px);
+        gap: 5px;
+    }
+
+    header h1 img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .logo-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    nav {
+        right: 12px;
+        width: min(280px, calc(100vw - 24px));
+    }
+
+    main {
+        padding: 32px 16px;
+    }
+
+    .description-title {
+        font-size: clamp(36px, 11vw, 52px);
+        margin-bottom: 22px;
+    }
+
+    .description-subtitle {
+        font-size: clamp(17px, 5vw, 22px);
+        margin-bottom: 28px;
+    }
+
+    .home-buttons {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .home-buttons a {
+        font-size: clamp(11px, 3.2vw, 13px);
+        padding: 10px 8px;
+        overflow-wrap: anywhere;
+    }
+
+    .bottom-links {
+        margin: 8px 16px 12px;
+    }
+
+    .bottom-links a {
+        flex: 1;
+        padding: 9px 10px;
+        font-size: 1rem;
+    }
+}
+
+/* ===== Estilos específicos para la página de fundamentos ===== */
+body.fundamentals-page { overflow-y: auto; }
+
+/* Ajusta el encabezado de la página de fundamentos para una vista más limpia. */
+.fundamentals-page header { border-bottom: none; padding: 16px 40px; }
+
+.fundamentals-page .logo-circle img { width: 58px; height: 58px; object-fit: contain; }
+
+.fundamentals-page header h1 {
+    font-size: clamp(16px, 2vw, 26px);
+    font-weight: 800;
+    letter-spacing: 0;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.fundamentals-page .menu-btn { width: 44px; height: 40px; }
+.fundamentals-page .menu-btn span { width: 42px; height: 5px; }
+.fundamentals-page nav { top: 100%; right: 20px; z-index: 10; }
+
+/* Diseña la estructura principal de la sección de fundamentos con columnas y tarjetas. */
+.fundamentals-content {
+    display: grid;
+    grid-template-columns: 33% 6% 1fr 21%;
+    grid-template-rows: 165px auto;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    text-align: left;
+}
+.fundamentals-center { display: contents; }
+
+.fundamentals-image { border-radius: 0; box-shadow: none; overflow: visible; min-height: 0; }
+
+.fundamentals-image-left {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    height: 440px;
+    min-height: 440px;
+    background: url("../imagenes/fondo.fundamentos2.png") left top / 100% 100% no-repeat;
+}
+
+.fundamentals-image-right {
+    grid-column: 4;
+    grid-row: 1;
+    align-self: start;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+    background: url("../imagenes/fotofundamentos1.jpeg") center / cover no-repeat;
+}
+
+.fundamentals-center h2 {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(32px, 5vw, 56px);
+    line-height: 1.1;
+    color: #fff;
+    text-align: center;
+    text-shadow: 4px 4px 0 #1b2f8f;
+    margin: 0;
+    padding: 0 12px;
+}
+
+.fundamentals-cards {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding-left: 22px;
+    align-items: start;
+}
+
+.fundamentals-cards article { color: #fff; }
+
+.fundamentals-cards h3 {
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto 18px;
+    padding: 5px 24px;
+    font-size: 17px;
+    color: #fff;
+    background: #05090c;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 0 3px #05090c, 0 0 0 5px rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.fundamentals-cards h4 { font-size: 14px; font-weight: 700; margin: 0 0 3px; }
+.fundamentals-cards p {
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: #e6e6e6;
+    text-align: left;
+    margin: 0 0 14px;
+}
+.fundamentals-cards strong { color: #fff; font-weight: 700; }
+
+/* Ajustes para pantallas pequeñas para que el contenido siga legible y ordenado. */
+@media (max-width: 800px) {
+    .fundamentals-content { grid-template-columns: 1fr; grid-template-rows: auto; padding: 24px 20px; }
+    .fundamentals-image-left { grid-column: 1; grid-row: auto; height: 260px; min-height: 260px; background-size: contain; }
+    .fundamentals-image-right { display: none; }
+    .fundamentals-center h2 { grid-column: 1; grid-row: auto; margin: 20px 0; }
+    .fundamentals-cards { grid-column: 1; grid-row: auto; grid-template-columns: 1fr; padding-left: 0; }
+}
+
+@media (max-width: 600px) {
+    .fundamentals-page header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .fundamentals-page header h1 {
+        position: static;
+        transform: none;
+        white-space: normal;
+        text-align: center;
+        font-size: clamp(14px, 4vw, 20px);
+    }
+
+    .fundamentals-page .logo-circle {
+        width: 46px;
+        height: 46px;
+    }
+
+    .fundamentals-page .logo-circle img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .fundamentals-page .menu-btn {
+        width: 34px;
+    }
+
+    .fundamentals-page .menu-btn span {
+        width: 30px;
+        height: 4px;
+    }
+
+    .fundamentals-content {
+        padding: 20px 16px;
+    }
+
+    .fundamentals-image-left {
+        height: 210px;
+        min-height: 210px;
+    }
+
+    .fundamentals-cards {
+        gap: 16px;
+    }
+}
+
+/* ===== Estilos específicos para la página de técnicas de aseguramiento ===== */
+body.techniques-page {
+    color: #edf6ff;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(42, 76, 122, 0.33), transparent 25%),
+        radial-gradient(circle at 85% 65%, rgba(70, 112, 158, 0.18), transparent 30%),
+        #030b12;
+}
+
+body.techniques-page header {
+    background: rgba(5, 9, 12, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 22px;
+    min-height: 68px;
+}
+
+body.techniques-page header h1 {
+    position: static;
+    transform: none;
+    left: auto;
+    font-size: clamp(18px, 2vw, 34px);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: none;
+    white-space: nowrap;
+    color: #f2f7ff;
+}
+
+/* Distribuye la tabla de pruebas y el panel informativo en columnas. */
+.techniques-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(260px, 1fr);
+    gap: 44px;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 24px 30px 40px;
+    align-items: start;
+}
+
+.techniques-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.techniques-left h2 {
+    color: #dff7ff;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: clamp(34px, 3.4vw, 62px);
+    line-height: 0.96;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 12px rgba(92, 206, 255, 0.7), 0 0 28px rgba(92, 206, 255, 0.4);
+    margin: 0 0 14px;
+    text-align: left;
+}
+
+.comparison-panel {
+    background: rgba(1, 10, 17, 0.34);
+    border: 2px solid rgba(109, 179, 255, 0.55);
+    box-shadow: inset 0 0 16px rgba(64, 128, 184, 0.25);
+    padding: 0;
+    max-width: 740px;
+}
+
+.comparison-panel h3 {
+    margin: 0 0 12px;
+    padding: 18px 18px 0;
+    color: #f2f9ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0.95;
+}
+
+/* Organiza los encabezados y las filas de la tabla de pruebas. */
+.comparison-table {
+    display: grid;
+    width: 100%;
+    border-top: 2px solid rgba(151, 168, 220, 0.8);
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 120px;
+}
+
+.table-header > div {
+    background: rgba(10, 23, 28, 0.9);
+    border-right: 1px solid rgba(145, 163, 190, 0.8);
+    border-bottom: 1px solid rgba(145, 163, 190, 0.8);
+    color: #f4f7ff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 12px;
+    text-align: center;
+}
+
+.table-header > div:last-child {
+    border-right: none;
+}
+
+.table-row {
+    background: rgba(12, 20, 29, 0.7);
+    border-bottom: 1px solid rgba(145, 163, 190, 0.8);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row > div,
+.table-row > ul {
+    border-right: 1px solid rgba(145, 163, 190, 0.8);
+    padding: 18px 18px 16px;
+}
+
+.table-row > div:last-child,
+.table-row > ul:last-child {
+    border-right: none;
+}
+
+.label-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #edfaff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Dibuja los íconos que identifican los niveles de prueba. */
+.test-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    background: rgba(196, 226, 255, 0.12);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.08), 0 0 10px rgba(83, 169, 255, 0.2);
+    display: inline-block;
+    position: relative;
+}
+
+.test-icon::before,
+.test-icon::after {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.test-icon.unitarias::before {
+    width: 14px;
+    height: 12px;
+    left: 5px;
+    top: 7px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, rgba(250, 250, 255, 0.95), rgba(161, 173, 255, 0.9));
+}
+
+.test-icon.unitarias::after {
+    width: 10px;
+    height: 10px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.test-icon.integracion {
+    border-radius: 6px;
+}
+
+.test-icon.integracion::before {
+    width: 16px;
+    height: 7px;
+    left: 5px;
+    top: 10px;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.test-icon.integracion::after {
+    width: 16px;
+    height: 7px;
+    right: 5px;
+    top: 10px;
+    transform: rotate(-45deg);
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.test-icon.sistema::before {
+    width: 18px;
+    height: 12px;
+    left: 5px;
+    top: 8px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 2px rgba(91, 194, 255, 0.45);
+}
+
+.test-icon.sistema::after {
+    width: 10px;
+    height: 2px;
+    left: 9px;
+    top: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -5px 0 rgba(255, 255, 255, 0.9), 0 5px 0 rgba(255, 255, 255, 0.9);
+}
+
+.table-row ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #e9f6ff;
+    font-weight: 600;
+    margin: 0;
+}
+
+.table-row li {
+    position: relative;
+    padding-left: 0;
+}
+
+/* Presenta las diferencias entre las cajas blanca y negra. */
+.boxes-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 18px;
+    padding-top: 135px;
+}
+
+.boxes-panel h3 {
+    margin: 0 0 4px;
+    color: #ebf7ff;
+    font-size: clamp(18px, 2vw, 30px);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+.box-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 72px;
+    width: 100%;
+    max-width: 500px;
+    padding: 18px 28px;
+    border-radius: 999px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    color: #edfaff;
+    background: rgba(10, 18, 24, 0.4);
+    font-size: clamp(16px, 1.4vw, 26px);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 15px rgba(176, 206, 255, 0.15);
+}
+
+.box-card.box-white {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.box-card.box-black {
+    background: rgba(7, 12, 17, 0.7);
+}
+
+/* Reacomoda la tabla de pruebas en tabletas y celulares. */
+@media (max-width: 980px) {
+    .techniques-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 18px 40px;
+    }
+
+    .boxes-panel {
+        padding-top: 0;
+        align-items: center;
+    }
+}
+
+@media (max-width: 720px) {
+    body.techniques-page header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    body.techniques-page header h1 {
+        position: static;
+        transform: none;
+        white-space: normal;
+        text-align: center;
+        font-size: clamp(14px, 4vw, 20px);
+        letter-spacing: 0.05em;
+    }
+
+    .techniques-left h2 {
+        font-size: clamp(28px, 8vw, 46px);
+        text-align: center;
+    }
+
+    .comparison-panel h3 {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+    }
+
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .table-header > div,
+    .table-row > div,
+    .table-row > ul {
+        border-right: none;
+        border-bottom: 1px solid rgba(145, 163, 190, 0.8);
+    }
+
+    .table-header > div:last-child,
+    .table-row > ul:last-child {
+        border-bottom: none;
+    }
+
+    .label-cell {
+        min-height: 62px;
+    }
+
+    .table-row ul {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .box-card {
+        max-width: 100%;
+        font-size: clamp(14px, 4vw, 18px);
+        min-height: 60px;
+    }
+}
+
+@media (max-width: 420px) {
+    .techniques-content {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .label-cell {
+        font-size: 14px;
+    }
+
+    .box-card {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* ===== Estilos de ciclo de vida del desarrollo de software ===== */
+body.process-page {
+    color: #fff;
+    background: #05090c;
+}
+
+.process-page header .header-logo {
+    display: block;
+    width: 58px;
+    height: 58px;
+    padding: 4px;
+    background: #fff;
+    object-fit: contain;
+}
+
+.process-page header h1 {
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 180px);
+    transform: translateX(-50%);
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.process-page main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 28px 4.2vw 48px;
+    text-align: left;
+}
+
+/* Introducción y descripción de las etapas del ciclo de vida. */
+.sdlc-top {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr 1.2fr;
+    gap: clamp(24px, 5vw, 72px);
+    align-items: start;
+}
+
+.sdlc-title {
+    color: #eaf5ff;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(28px, 3.3vw, 48px);
+    font-weight: 800;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(73, 150, 255, 0.9), 0 0 18px rgba(73, 150, 255, 0.65);
+}
+
+.sdlc-info {
+    color: #f3f5f7;
+    padding-top: 2px;
+}
+
+.sdlc-info h3 {
+    margin-bottom: 6px;
+    font-size: clamp(12px, 1.15vw, 16px);
+    font-weight: 800;
+}
+
+.sdlc-info p {
+    font-size: clamp(10px, 0.95vw, 13px);
+    line-height: 1.22;
+}
+
+/* Cuadro que explica la etapa seleccionada y su flecha. */
+.sdlc-callout-wrap {
+    --arrow-x: 50%;
+    position: relative;
+    height: 126px;
+    margin-top: 18px;
+}
+
+.sdlc-callout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(200px, 100%);
+    padding: 12px 10px;
+    border: 2px solid #286dff;
+    border-radius: 9px;
+    color: #f2f5fa;
+    background: #07101a;
+    font-size: 11px;
+    line-height: 1.25;
+    transition: left 180ms ease;
+}
+
+.sdlc-callout::before,
+.sdlc-callout::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--arrow-x) - 30px);
+    width: 60px;
+    height: 34px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.sdlc-callout::before {
+    bottom: -34px;
+    background: #286dff;
+}
+
+.sdlc-callout::after {
+    bottom: -29px;
+    left: calc(var(--arrow-x) - 27px);
+    width: 54px;
+    height: 30px;
+    background: #07101a;
+}
+
+/* Línea de tiempo con los botones de las etapas del ciclo. */
+.sdlc-steps {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0 4% 0;
+}
+
+.sdlc-steps::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
+    background: #119dff;
+    box-shadow: 0 0 7px rgba(17, 157, 255, 0.55);
+}
+
+.sdlc-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    color: #fff;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+.sdlc-circle {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: 3px solid #286dff;
+    border-radius: 50%;
+    background: #102b73;
+    box-shadow: 0 0 0 3px #05090c;
+    transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.sdlc-circle svg {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: #05090c;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sdlc-step.active .sdlc-circle {
+    border-color: #fff;
+    background: #1745bc;
+    transform: scale(1.04);
+}
+
+.sdlc-step:focus-visible .sdlc-circle {
+    outline: 2px solid #80dfff;
+    outline-offset: 4px;
+}
+
+.sdlc-label {
+    position: relative;
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 800;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.25);
+}
+
+.sdlc-label::before {
+    content: "";
+    position: absolute;
+    top: -19px;
+    left: -18px;
+    width: 20px;
+    height: 18px;
+    border-left: 1px solid #13baff;
+    border-bottom: 1px solid #13baff;
+    border-radius: 0 0 0 14px;
+    transform: rotate(-24deg);
+}
+
+.sdlc-label::after {
+    content: "➜";
+    position: absolute;
+    top: -8px;
+    left: -20px;
+    color: #13baff;
+    font-size: 12px;
+}
+
+/* Paneles, ventajas y desventajas de los modelos tradicionales. */
+.models-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: calc(100vh - 110px);
+    padding-top: 6px;
+}
+
+.models-title {
+    margin: 0;
+    color: #f4f8ff;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(22px, 3.4vw, 36px);
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: left;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(57, 159, 255, 0.95), 0 0 26px rgba(57, 159, 255, 0.7);
+}
+
+.model-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7vw;
+}
+
+.model-tab {
+    justify-self: center;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(100%, 240px);
+    min-height: 252px;
+    padding: 0 0 12px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(255, 255, 255, 0.18);
+    font: inherit;
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+
+.model-tab-title {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 41px;
+    padding: 4px 8px;
+    border-radius: 10px 10px 7px 7px;
+    color: #fff;
+    background: #3266ed;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: 1.1;
+}
+
+.model-tab img {
+    display: block;
+    width: calc(100% - 32px);
+    height: 130px;
+    margin-top: 2px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    background: #fff;
+    object-fit: contain;
+}
+
+.model-tab.active .model-tab-title {
+    background: #3266ed;
+}
+
+.model-tab:focus-visible {
+    outline: 3px solid #65b8ff;
+    outline-offset: 4px;
+}
+
+.model-panel {
+    display: grid;
+    grid-template-columns: 0.95fr 1fr 1fr;
+    column-gap: 7vw;
+    align-items: start;
+}
+
+.model-panel[hidden] {
+    display: none;
+}
+
+.model-info {
+    color: #f4f4f4;
+    font-size: clamp(11px, 0.95vw, 14px);
+    line-height: 1.18;
+}
+
+.model-info h4 {
+    margin: 0 0 3px;
+    font-size: 1.05em;
+    font-weight: 800;
+}
+
+.model-info p {
+    margin: 0 0 21px;
+}
+
+.pc-card {
+    width: 100%;
+    min-height: 304px;
+    padding: 10px 9px;
+    border-radius: 12px;
+}
+
+.pc-card.pros {
+    background: #31c326;
+}
+
+.pc-card.cons {
+    background: #bc303c;
+}
+
+.pc-card h4 {
+    margin: 0 0 7px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: clamp(30px, 3.2vw, 47px);
+    font-weight: 500;
+    line-height: 1.05;
+    text-align: center;
+    text-shadow:
+        -2px -2px 0 #111,
+        2px -2px 0 #111,
+        -2px 2px 0 #111,
+        2px 2px 0 #111;
+}
+
+.pc-card ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 230px;
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 11px;
+    background: #fff;
+    list-style: none;
+}
+
+.pc-card li {
+    position: relative;
+    padding-left: 46px;
+    color: #07142f;
+    font-size: clamp(14px, 1.35vw, 20px);
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: 1px 1px 1px #91a1bb;
+}
+
+.pc-card li::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-53%);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.pc-card.pros li::before {
+    content: "✓";
+    color: #35c72e;
+}
+
+.pc-card.cons li::before {
+    content: "×";
+    color: #f00;
+    font-size: 54px;
+}
+
+/* Reduce los espacios y reorganiza las etapas en pantallas pequeñas. */
+@media (max-width: 700px) {
+    .process-page main {
+        padding: 28px 18px 40px;
+    }
+
+    .process-page header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .process-page header .header-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .process-page header h1 {
+        position: static;
+        width: auto;
+        max-width: none;
+        transform: none;
+        white-space: normal;
+        font-size: clamp(12px, 3.5vw, 20px);
+        line-height: 1.15;
+    }
+
+    .process-page .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    .models-section {
+        gap: 18px;
+        min-height: 0;
+    }
+
+    .models-title {
+        grid-column: 1;
+        margin-bottom: 5px;
+        font-size: clamp(32px, 8vw, 48px);
+    }
+
+    .process-agile-summary,
+    .process-agile-details {
+        margin-top: 34px;
+    }
+
+    .process-agile-summary-grid,
+    .agile-method-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .process-agile-toolbar {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .process-agile-toolbar > h2 {
+        text-align: left;
+    }
+
+    .agile-method-card li {
+        font-size: 14px;
+    }
+
+    .model-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .model-tab {
+        width: 100%;
+        min-height: 220px;
+        padding-bottom: 8px;
+    }
+
+    .model-tab-title {
+        min-height: 44px;
+        font-size: clamp(10px, 2.5vw, 15px);
+    }
+
+    .model-tab img {
+        width: calc(100% - 12px);
+        height: 110px;
+    }
+
+    .model-panel {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .model-info {
+        grid-column: 1 / -1;
+        font-size: 13px;
+    }
+
+    .model-info p {
+        margin-bottom: 14px;
+    }
+
+    .pc-card {
+        min-height: 0;
+    }
+
+    .pc-card h4 {
+        font-size: clamp(22px, 6vw, 34px);
+    }
+
+    .pc-card ul {
+        min-height: 200px;
+        padding: 8px;
+    }
+
+    .pc-card li {
+        padding-left: 29px;
+        font-size: clamp(11px, 3vw, 15px);
+    }
+
+    .pc-card li::before {
+        font-size: 32px;
+    }
+
+    .pc-card.cons li::before {
+        font-size: 40px;
+    }
+
+    .sdlc-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 18px;
+    }
+
+    .sdlc-title {
+        grid-column: 1 / -1;
+        max-width: 500px;
+    }
+
+    .sdlc-info h3 {
+        font-size: 14px;
+    }
+
+    .sdlc-info p {
+        font-size: 12px;
+    }
+
+    .sdlc-callout-wrap {
+        height: 140px;
+        margin-top: 22px;
+    }
+
+    .sdlc-callout {
+        font-size: 12px;
+    }
+
+    .sdlc-steps {
+        gap: 4px;
+        padding: 0;
+    }
+
+    .sdlc-steps::before {
+        left: 7%;
+        right: 7%;
+    }
+
+    .sdlc-circle {
+        width: clamp(42px, 10vw, 58px);
+        height: clamp(42px, 10vw, 58px);
+    }
+
+    .sdlc-circle svg {
+        width: 70%;
+        height: 70%;
+    }
+
+    .sdlc-label {
+        font-size: clamp(9px, 2.5vw, 12px);
+    }
+
+    .sdlc-label::before,
+    .sdlc-label::after {
+        display: none;
+    }
+}
+
+/* Ajustes extra para teléfonos angostos. */
+@media (max-width: 480px) {
+    .process-page header h1 {
+        font-size: clamp(11px, 3.4vw, 15px);
+    }
+
+    .process-page main {
+        padding: 22px 14px 36px;
+    }
+
+    .models-title {
+        font-size: clamp(28px, 8vw, 38px);
+    }
+
+    .model-tabs {
+        grid-template-columns: 1fr;
+    }
+
+    .model-tab {
+        min-height: 252px;
+        max-width: none;
+    }
+
+    .model-tab-title {
+        min-height: 41px;
+        font-size: 16px;
+    }
+
+    .model-tab img {
+        width: calc(100% - 32px);
+        height: 130px;
+    }
+
+    .model-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .model-info {
+        grid-column: 1;
+    }
+
+    .pc-card {
+        max-width: 360px;
+        justify-self: center;
+    }
+
+    .pc-card ul {
+        min-height: 190px;
+    }
+
+    .sdlc-top {
+        grid-template-columns: 1fr;
+    }
+
+    .sdlc-title {
+        grid-column: 1;
+    }
+
+    .sdlc-info p {
+        max-width: 38em;
+    }
+
+    .sdlc-callout-wrap {
+        height: 126px;
+    }
+
+    .sdlc-callout {
+        width: min(220px, 78vw);
+        padding: 10px;
+    }
+
+    .sdlc-steps {
+        gap: 2px;
+    }
+
+    .sdlc-circle {
+        width: clamp(36px, 11vw, 48px);
+        height: clamp(36px, 11vw, 48px);
+        border-width: 2px;
+    }
+
+    .sdlc-steps::before {
+        top: 23px;
+    }
+
+    .sdlc-label {
+        font-size: clamp(8px, 2.6vw, 11px);
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+}
+
+/* ===== Página de metodologías: Scrum en profundidad ===== */
+.methodologies-page {
+    color: #f5f8ff;
+    background:
+        radial-gradient(ellipse at 18% 32%, rgba(12, 72, 112, 0.2), transparent 36%),
+        #05090c;
+}
+
+.methodologies-page header h1 {
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 180px);
+    transform: translateX(-50%);
+    color: #f5f8ff;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.methodologies-page nav {
+    z-index: 5;
+}
+
+.methodologies-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: clamp(28px, 4vw, 58px) clamp(18px, 4vw, 58px) 72px;
+    text-align: left;
+}
+
+/* Diseño del resumen de Scrum y sus pestañas de contenido. */
+.scrum-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    gap: clamp(28px, 4vw, 58px);
+    align-items: stretch;
+}
+
+.scrum-process {
+    min-width: 0;
+}
+
+.scrum-eyebrow {
+    margin-bottom: 12px;
+    color: #35bfff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+}
+
+.scrum-process > h2 {
+    margin-bottom: 17px;
+    color: #f4f8ff;
+    font-size: clamp(40px, 5vw, 70px);
+    font-weight: 800;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 28px rgba(49, 184, 255, 0.5);
+}
+
+.scrum-intro {
+    max-width: 440px;
+    margin-bottom: 28px;
+    color: #c8d7e8;
+    font-size: clamp(14px, 1.2vw, 17px);
+    line-height: 1.5;
+}
+
+.scrum-flow-image {
+    display: block;
+    width: min(100%, 582px);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.scrum-process-note {
+    max-width: 560px;
+    margin-top: 15px;
+    color: #91a5ba;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.scrum-detail {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #3268f1;
+    border-radius: 14px;
+    background: rgba(8, 14, 19, 0.92);
+    box-shadow: 0 0 26px rgba(28, 91, 225, 0.12);
+}
+
+.scrum-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 2px solid #35bfff;
+}
+
+.scrum-tab {
+    min-height: 60px;
+    padding: 10px 8px;
+    border: 0;
+    color: #f5f8ff;
+    background: transparent;
+    font: inherit;
+    font-size: clamp(16px, 2vw, 27px);
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 160ms ease;
+}
+
+.scrum-tab:hover,
+.scrum-tab.active {
+    background: #258fbe;
+}
+
+.scrum-tab:focus-visible {
+    position: relative;
+    z-index: 1;
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+}
+
+.scrum-panels {
+    min-height: 440px;
+    padding: clamp(16px, 2vw, 26px);
+}
+
+.scrum-panel[hidden] {
+    display: none;
+}
+
+/* Diseño de la explicación y el tablero visual de Kanban. */
+.kanban-overview {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(30px, 5vw, 72px);
+    align-items: center;
+    margin-top: clamp(72px, 10vw, 140px);
+    padding-top: clamp(32px, 5vw, 64px);
+    border-top: 1px solid rgba(79, 146, 205, 0.2);
+}
+
+.kanban-introduction {
+    min-width: 0;
+}
+
+.kanban-eyebrow {
+    margin-bottom: 12px;
+    color: #35bfff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.kanban-introduction > h2 {
+    margin-bottom: 42px;
+    color: #f4f8ff;
+    font-size: clamp(36px, 3.8vw, 52px);
+    font-weight: 800;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 28px rgba(49, 184, 255, 0.5);
+}
+
+.kanban-copy {
+    margin-bottom: 26px;
+}
+
+.kanban-copy h3 {
+    margin-bottom: 9px;
+    color: #f5f8ff;
+    font-size: clamp(20px, 2.2vw, 29px);
+    line-height: 1.15;
+}
+
+.kanban-copy p {
+    max-width: 48ch;
+    color: #c8d7e8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.kanban-principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.kanban-principles span {
+    padding: 7px 10px;
+    border: 1px solid rgba(53, 191, 255, 0.35);
+    border-radius: 999px;
+    color: #b6eaff;
+    background: rgba(15, 73, 110, 0.22);
+    font-size: 11px;
+}
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    min-width: 0;
+    transform: translateY(30px);
+    overflow: hidden;
+    border: 2px solid #3268f1;
+    border-radius: 13px;
+    background: rgba(8, 14, 19, 0.82);
+    box-shadow: 0 0 28px rgba(28, 91, 225, 0.15);
+}
+
+.kanban-column {
+    min-width: 0;
+    padding: 0 11px 16px;
+    border-right: 2px solid #3268f1;
+}
+
+.kanban-column:last-child {
+    border-right: 0;
+}
+
+.kanban-column-header {
+    display: flex;
+    min-height: 56px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    border-bottom: 1px solid rgba(53, 191, 255, 0.48);
+}
+
+.kanban-column-header > div {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 7px;
+}
+
+.kanban-column-header h3 {
+    color: #f5f8ff;
+    font-size: clamp(12px, 1.2vw, 17px);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.kanban-column-indicator {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+    border-radius: 50%;
+    background: #8497ff;
+    box-shadow: 0 0 9px currentColor;
+}
+
+.kanban-column-active .kanban-column-indicator { background: #35bfff; }
+.kanban-column-done .kanban-column-indicator { background: #53d6a1; }
+
+.kanban-count {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    flex: 0 0 26px;
+    place-items: center;
+    border: 1px solid rgba(160, 184, 255, 0.3);
+    border-radius: 50%;
+    color: #dce5ff;
+    background: rgba(50, 104, 241, 0.2);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.kanban-column-description {
+    min-height: 40px;
+    padding: 9px 0 7px;
+    color: #8fa4ba;
+    font-size: 10px;
+    line-height: 1.35;
+}
+
+.kanban-card {
+    margin: 0 0 11px;
+    padding: 12px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.68);
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(145deg, #39baff, #218bd5);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.kanban-card-tag {
+    display: inline-block;
+    margin-bottom: 7px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    color: #e8f7ff;
+    background: rgba(4, 33, 72, 0.28);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.kanban-card h4 {
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.25;
+}
+
+.kanban-card p {
+    color: #ecf8ff;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.kanban-card-owner {
+    display: block;
+    margin-top: 10px;
+    color: #e1f3ff;
+    font-size: 9px;
+}
+
+.kanban-card-owner span {
+    margin-right: 4px;
+    color: #dbedff;
+    font-size: 8px;
+}
+
+.kanban-card-blocked {
+    border-color: #ffcb74;
+    background: linear-gradient(145deg, #348bc7, #246aa7);
+}
+
+.kanban-card-blocked .kanban-card-tag {
+    color: #fff0d4;
+    background: rgba(157, 83, 12, 0.55);
+}
+
+/* Estilos de los títulos y los detalles dentro de las pestañas Scrum. */
+.scrum-panel-heading {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.scrum-panel-icon {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background: #101a25;
+    font-size: 22px;
+}
+
+.scrum-panel-heading h3 {
+    margin-bottom: 4px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.scrum-panel-heading p {
+    color: #bdc9d5;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.scrum-detail-item {
+    position: relative;
+    margin: 0 0 17px 45px;
+}
+
+.scrum-detail-item::before {
+    position: absolute;
+    top: 4px;
+    left: -19px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    content: "";
+}
+
+.scrum-detail-item h4 {
+    margin-bottom: 4px;
+    color: #f7faff;
+    font-size: 15px;
+}
+
+.scrum-detail-item p {
+    color: #d3dce6;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.scrum-commitments {
+    margin: 8px 0 0 45px;
+    padding: 13px 15px;
+    border-left: 3px solid #35bfff;
+    border-radius: 0 8px 8px 0;
+    background: rgba(39, 115, 157, 0.16);
+}
+
+.scrum-commitments h4 {
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 13px;
+}
+
+.scrum-commitments p {
+    color: #c9d9e8;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Pasa las secciones de Scrum y Kanban a una columna en tabletas. */
+@media (max-width: 900px) {
+    .scrum-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .kanban-overview {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .kanban-introduction > h2 {
+        margin-bottom: 28px;
+    }
+
+    .kanban-copy p {
+        max-width: 70ch;
+    }
+
+    .scrum-process > h2 br {
+        display: none;
+    }
+
+    .scrum-process > h2 {
+        max-width: 760px;
+    }
+
+    .scrum-intro {
+        max-width: 700px;
+    }
+
+    .scrum-panels {
+        min-height: 0;
+    }
+}
+
+/* Ajusta pestañas y tablero para que se lean en móviles. */
+@media (max-width: 700px) {
+    .methodologies-page > header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .methodologies-page header h1 {
+        position: static;
+        width: auto;
+        max-width: none;
+        transform: none;
+        white-space: normal;
+        font-size: clamp(12px, 3.5vw, 20px);
+        line-height: 1.2;
+    }
+
+    .methodologies-page .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    .methodologies-content {
+        padding: 30px 16px 48px;
+    }
+
+    .scrum-process > h2 {
+        font-size: clamp(40px, 12vw, 62px);
+    }
+
+    .scrum-process > h2 br {
+        display: initial;
+    }
+
+    .scrum-tabs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .scrum-tab {
+        min-height: 50px;
+        padding: 8px 4px;
+        font-size: clamp(12px, 3.5vw, 17px);
+    }
+
+    .scrum-panels {
+        padding: 16px 13px;
+    }
+
+    .scrum-panel-heading {
+        gap: 9px;
+    }
+
+    .scrum-detail-item,
+    .scrum-commitments {
+        margin-left: 32px;
+    }
+
+    .kanban-overview {
+        gap: 28px;
+        margin-top: 64px;
+    }
+
+    .kanban-introduction > h2 {
+        font-size: clamp(40px, 12vw, 62px);
+    }
+
+    .kanban-board {
+        grid-template-columns: 1fr;
+        transform: none;
+    }
+
+    .kanban-column {
+        padding: 0 13px 10px;
+        border-right: 0;
+        border-bottom: 2px solid #3268f1;
+    }
+
+    .kanban-column:last-child {
+        border-bottom: 0;
+    }
+
+    .kanban-column-header h3 {
+        font-size: 15px;
+    }
+
+    .kanban-column-description {
+        min-height: 0;
+    }
+
+    .kanban-card {
+        padding: 13px;
+    }
+
+    .kanban-card h4 {
+        font-size: 13px;
+    }
+
+    .kanban-card p {
+        font-size: 11px;
+    }
+}
+
+/* Reduce el título en teléfonos pequeños. */
+@media (max-width: 480px) {
+    .methodologies-page header h1 {
+        font-size: clamp(11px, 3.4vw, 15px);
+    }
+}
+
+/* ===== Recursos y aprendizaje: glosario ===== */
+.resources-page {
+    min-height: 100vh;
+    color: #f5f8ff;
+    background: #05090c;
+}
+
+.resources-page header h1 {
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 180px);
+    transform: translateX(-50%);
+    color: #f5f8ff;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.resources-page nav {
+    z-index: 5;
+}
+
+.glossary-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 28px clamp(18px, 1.8vw, 30px) 60px;
+    text-align: left;
+}
+
+/* Alinea el título y el buscador del glosario. */
+.glossary-heading-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+}
+
+.glossary-heading-row > h2 {
+    margin: 0;
+    color: #f5f8ff;
+    font-size: clamp(44px, 5vw, 66px);
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 25px rgba(49, 184, 255, 0.55);
+}
+
+.glossary-search {
+    display: flex;
+    width: min(42%, 545px);
+    min-height: 54px;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.glossary-search svg {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    fill: none;
+    stroke: #05090c;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.glossary-search input {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    padding: 4px 9px;
+    border: 2px solid #d6d6d6;
+    border-radius: 10px;
+    color: #222;
+    background: #fff;
+    font: inherit;
+    font-size: clamp(16px, 1.8vw, 23px);
+    font-weight: 700;
+}
+
+.glossary-search input:focus {
+    border-color: #3268f1;
+    outline: 2px solid rgba(50, 104, 241, 0.18);
+}
+
+.glossary-search input::placeholder {
+    color: #777;
+    opacity: 1;
+}
+
+.glossary-clear {
+    display: grid;
+    width: 30px;
+    height: 36px;
+    flex: 0 0 30px;
+    place-items: center;
+    border: 0;
+    color: #10131b;
+    background: transparent;
+    font: inherit;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.glossary-clear:focus-visible {
+    outline: 2px solid #3268f1;
+    outline-offset: 1px;
+}
+
+/* Distribuye los filtros alfabéticos y destaca los que tienen términos. */
+.glossary-alphabet {
+    position: static;
+    display: grid;
+    width: 100%;
+    max-height: none;
+    grid-template-columns: repeat(26, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    margin: 25px 0 30px;
+    padding: 0;
+    z-index: auto;
+}
+
+.glossary-alphabet button {
+    display: grid;
+    min-width: 0;
+    aspect-ratio: 1;
+    place-items: center;
+    padding: 0;
+    border: 2px solid #f5f8ff;
+    color: #f5f8ff;
+    background: transparent;
+    font: inherit;
+    font-size: clamp(13px, 2vw, 28px);
+    line-height: 1;
+    cursor: pointer;
+    transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.glossary-alphabet button.has-entries,
+.glossary-alphabet button:hover,
+.glossary-alphabet button.active {
+    border-color: #3268f1;
+    color: #3472ff;
+}
+
+.glossary-alphabet button.active {
+    color: #fff;
+    background: #3268f1;
+}
+
+.glossary-alphabet button:focus-visible {
+    outline: 2px solid #80dfff;
+    outline-offset: 2px;
+}
+
+/* Cuadrícula de tarjetas con términos del glosario. */
+.glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px clamp(22px, 5vw, 72px);
+    align-items: start;
+}
+
+.glossary-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 2px solid #f5f8ff;
+    border-radius: 12px;
+    color: #fff;
+    background: #3467ed;
+}
+
+.glossary-card h3 {
+    min-height: 41px;
+    padding: 8px 7px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    font-size: clamp(13px, 1.15vw, 17px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.glossary-card p {
+    padding: 7px 7px 9px;
+    color: #fff;
+    font-size: clamp(11px, 0.92vw, 13px);
+    line-height: 1.35;
+}
+
+.glossary-card[hidden] {
+    display: none;
+}
+
+.glossary-empty {
+    margin: 34px 0;
+    color: #c8d7e8;
+    text-align: center;
+}
+
+.glossary-result-count {
+    min-height: 1em;
+    margin-top: 20px;
+    color: #91a5ba;
+    font-size: 12px;
+    text-align: right;
+}
+
+/* Reduce las columnas del glosario para pantallas medianas. */
+@media (max-width: 1000px) {
+    .glossary-alphabet {
+        grid-template-columns: repeat(13, minmax(0, 1fr));
+    }
+
+    .glossary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .glossary-card h3 {
+        font-size: clamp(15px, 2vw, 18px);
+    }
+
+    .glossary-card p {
+        font-size: clamp(12px, 1.6vw, 14px);
+    }
+}
+
+/* Apila el buscador y acomoda los filtros en móviles. */
+@media (max-width: 700px) {
+    .resources-page > header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .resources-page header h1 {
+        position: static;
+        width: auto;
+        max-width: none;
+        transform: none;
+        white-space: normal;
+        font-size: clamp(12px, 3.5vw, 20px);
+        line-height: 1.2;
+    }
+
+    .resources-page .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    .glossary-content {
+        padding: 30px 16px 46px;
+    }
+
+    .glossary-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .glossary-heading-row > h2 {
+        font-size: clamp(42px, 12vw, 60px);
+    }
+
+    .glossary-search {
+        width: 100%;
+    }
+
+    .glossary-alphabet {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 7px;
+        margin: 20px 0 24px;
+    }
+
+    .glossary-alphabet button {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .glossary-grid {
+        gap: 13px;
+    }
+}
+
+/* Muestra una sola tarjeta por fila en teléfonos angostos. */
+@media (max-width: 480px) {
+    .resources-page header h1 {
+        font-size: clamp(11px, 3.4vw, 15px);
+    }
+
+    .glossary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Preguntas frecuentes en acordeones debajo del glosario. */
+.faq-section {
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(64, 194, 255, 0.35);
+}
+
+.faq-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.faq-heading h2 {
+    margin: 0;
+    color: #f5f8ff;
+    font-size: clamp(40px, 5vw, 66px);
+    font-weight: 900;
+    line-height: 0.98;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(49, 184, 255, 0.8), 0 0 24px rgba(49, 184, 255, 0.4);
+}
+
+.faq-heading > p {
+    margin: 0;
+    padding: 14px 22px;
+    border: 2px solid #3472ff;
+    border-radius: 999px;
+    color: #f5f8ff;
+    font-size: clamp(12px, 1.25vw, 17px);
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.faq-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 2px solid #f5f8ff;
+    border-radius: 12px;
+    color: #fff;
+    background: #05090c;
+}
+
+.faq-card summary {
+    position: relative;
+    display: block;
+    min-height: 68px;
+    padding: 16px 42px 16px 16px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    background: #3467ed;
+    font-size: clamp(14px, 1.05vw, 16px);
+    font-weight: 800;
+    line-height: 1.35;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-card summary::after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    color: #fff;
+    content: "+";
+    font-size: 25px;
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+.faq-card[open] summary::after {
+    content: "−";
+}
+
+.faq-card summary:focus-visible {
+    outline: 2px solid #80dfff;
+    outline-offset: -3px;
+}
+
+.faq-card > p {
+    padding: 14px 16px 17px;
+    color: #fff;
+    background: #05090c;
+    font-size: clamp(12px, 0.95vw, 14px);
+    line-height: 1.5;
+}
+
+/* Ajusta las preguntas frecuentes a dos columnas. */
+@media (max-width: 1000px) {
+    .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .faq-card summary {
+        font-size: clamp(14px, 1.7vw, 17px);
+    }
+
+    .faq-card > p {
+        font-size: clamp(13px, 1.5vw, 15px);
+    }
+}
+
+/* Apila el título y las preguntas en pantallas pequeñas. */
+@media (max-width: 700px) {
+    .faq-section {
+        margin-top: 20px;
+        padding-top: 24px;
+    }
+
+    .faq-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    .faq-heading h2 {
+        font-size: clamp(38px, 11vw, 58px);
+    }
+
+    .faq-heading > p {
+        align-self: stretch;
+        font-size: 12px;
+    }
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+}
+
+/* ===== Presentación del equipo y formulario de contacto ===== */
+body.additional-page {
+    background: #05090c;
+    color: #fff;
+}
+
+.additional-page > header {
+    padding: 14px 25px;
+}
+
+.additional-page > header h1 {
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 180px);
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.additional-content {
+    width: min(100%, 1600px);
+    margin: 0 auto;
+    padding: 38px clamp(22px, 5.6vw, 76px) 42px;
+    text-align: left;
+}
+
+/* Organiza la presentación del equipo y las tarjetas de integrantes. */
+.team-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+    align-items: start;
+    gap: clamp(34px, 5.5vw, 76px);
+}
+
+.team-introduction {
+    min-width: 0;
+}
+
+.team-introduction > h2 {
+    margin: 0 0 48px;
+    color: #fff;
+    font-size: clamp(48px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 0.92;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 25px rgba(49, 184, 255, 0.55);
+}
+
+.team-copy {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(20px, 3.2vw, 44px);
+    align-items: start;
+}
+
+.team-copy > p,
+.team-motivation {
+    color: #f5f8ff;
+    font-size: clamp(14px, 1.15vw, 17px);
+    font-weight: 600;
+    line-height: 1.28;
+}
+
+.team-motivation h3 {
+    margin: 0 0 2px;
+    font-size: inherit;
+    font-weight: 800;
+}
+
+.team-motivation ul {
+    padding: 0;
+    list-style: none;
+}
+
+.team-photo {
+    display: block;
+    width: min(100%, 282px);
+    height: 184px;
+    margin-top: 34px;
+    border-radius: 18px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.team-members {
+    display: grid;
+    gap: 18px;
+}
+
+.team-member {
+    display: flex;
+    min-height: 130px;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 12px;
+    border: 2px solid #3268f1;
+    border-radius: 14px;
+    color: #fff;
+}
+
+.member-avatar {
+    width: clamp(76px, 8vw, 106px);
+    height: auto;
+    flex: 0 0 clamp(76px, 8vw, 106px);
+}
+
+.team-member h3,
+.team-member p {
+    color: #fff;
+    font-size: clamp(20px, 2.25vw, 31px);
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.team-member p {
+    margin-top: 24px;
+}
+
+/* Reordena el contenido del equipo en pantallas medianas. */
+@media (max-width: 900px) {
+    .team-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 28px;
+    }
+
+    .team-introduction > h2 {
+        margin-bottom: 32px;
+        font-size: clamp(42px, 6vw, 58px);
+    }
+
+    .team-copy {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .team-photo {
+        margin-top: 26px;
+    }
+
+    .team-member {
+        min-height: 112px;
+        gap: 12px;
+    }
+
+    .team-member h3,
+    .team-member p {
+        font-size: clamp(18px, 2.7vw, 25px);
+    }
+
+    .team-member p {
+        margin-top: 16px;
+    }
+}
+
+/* Apila la presentación y las tarjetas en teléfonos. */
+@media (max-width: 700px) {
+    .additional-page > header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .additional-page > header h1 {
+        position: static;
+        width: auto;
+        max-width: none;
+        transform: none;
+        white-space: normal;
+        font-size: clamp(12px, 3.5vw, 20px);
+        line-height: 1.2;
+    }
+
+    .additional-page .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    .additional-content {
+        padding: 30px 18px 38px;
+    }
+
+    .team-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .team-introduction > h2 {
+        margin-bottom: 28px;
+        font-size: clamp(44px, 12vw, 62px);
+    }
+
+    .team-copy {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .team-copy > p,
+    .team-motivation {
+        font-size: clamp(13px, 3.5vw, 16px);
+    }
+
+    .team-photo {
+        width: min(100%, 360px);
+        height: auto;
+        aspect-ratio: 1.53;
+        margin-top: 24px;
+    }
+
+    .team-members {
+        gap: 13px;
+    }
+
+    .team-member {
+        min-height: 98px;
+        padding: 8px 10px;
+    }
+
+    .member-avatar {
+        width: 74px;
+        flex-basis: 74px;
+    }
+
+    .team-member h3,
+    .team-member p {
+        font-size: clamp(18px, 5vw, 24px);
+    }
+
+    .team-member p {
+        margin-top: 10px;
+    }
+}
+
+/* Usa una sola columna de texto en teléfonos muy angostos. */
+@media (max-width: 400px) {
+    .team-copy {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Formulario de contacto y texto de introducción. */
+.contact-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.92fr);
+    align-items: start;
+    gap: clamp(32px, 6vw, 82px);
+    margin-top: 70px;
+    padding: 38px 0 12px;
+    border-top: 1px solid rgba(64, 194, 255, 0.32);
+}
+
+.contact-introduction h2 {
+    margin: 0 0 22px;
+    color: #fff;
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 900;
+    line-height: 0.94;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 25px rgba(49, 184, 255, 0.55);
+}
+
+.contact-introduction h3,
+.contact-introduction > p {
+    color: #fff;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.contact-introduction h3 {
+    margin: 0 0 4px;
+    text-transform: uppercase;
+}
+
+.contact-introduction > p {
+    margin-bottom: 15px;
+}
+
+.contact-introduction > img {
+    display: block;
+    width: min(100%, 220px);
+    height: 145px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.contact-form {
+    display: grid;
+    gap: 12px;
+    padding: 12px;
+    border: 2px solid #49c9ff;
+    border-radius: 9px;
+    background: #3467ed;
+    box-shadow: 0 0 16px rgba(49, 184, 255, 0.16);
+}
+
+.contact-field {
+    display: grid;
+    gap: 4px;
+}
+
+.contact-field label {
+    padding-left: 1px;
+    color: #fff;
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 800;
+}
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 5px 9px;
+    border: 2px solid #e3e3e3;
+    border-radius: 8px;
+    outline: none;
+    color: #252525;
+    background: #fff;
+    font: inherit;
+    font-size: 16px;
+}
+
+.contact-field input {
+    height: 34px;
+}
+
+.contact-field textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-color: #111820;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.contact-field input::placeholder {
+    color: #bdbdbd;
+    opacity: 1;
+}
+
+.contact-submit {
+    display: grid;
+    width: 42px;
+    height: 26px;
+    justify-self: end;
+    place-items: center;
+    padding: 0 4px;
+    border: 2px solid #05090c;
+    border-radius: 999px;
+    color: #05090c;
+    background: transparent;
+    cursor: pointer;
+    transition: color 140ms ease, background-color 140ms ease, transform 140ms ease;
+}
+
+.contact-submit svg {
+    display: block;
+    width: 30px;
+    height: 18px;
+}
+
+.contact-submit:hover {
+    color: #fff;
+    background: #05090c;
+    transform: translateX(2px);
+}
+
+.contact-submit:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.contact-status {
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.contact-status[hidden] {
+    display: none;
+}
+
+/* Coloca el texto arriba del formulario en móviles. */
+@media (max-width: 700px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 42px;
+        padding-top: 28px;
+    }
+
+    .contact-introduction h2 {
+        font-size: clamp(38px, 10vw, 52px);
+    }
+
+    .contact-introduction > p br {
+        display: none;
+    }
+
+    .contact-introduction > img {
+        width: min(100%, 320px);
+        height: auto;
+        aspect-ratio: 1.52;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 440px;
+        justify-self: center;
+        gap: 13px;
+        padding: 14px;
+    }
+
+    .contact-field label {
+        font-size: 16px;
+    }
+}
+
+/* ===== Comparador interactivo de metodologías ===== */
+body.comparison-page {
+    min-height: 100vh;
+    color: #f5f8ff;
+    background: #05090c;
+}
+
+.comparison-page header h1 {
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 180px);
+    transform: translateX(-50%);
+    color: #f5f8ff;
+    font-size: clamp(16px, 2vw, 28px);
+    letter-spacing: 0;
+    text-align: center;
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+.comparison-page nav {
+    z-index: 5;
+}
+
+.comparison-content {
+    width: min(100%, 1600px);
+    min-width: 0;
+    margin: 0 auto;
+    padding: 28px clamp(18px, 1.8vw, 30px) 40px;
+    text-align: left;
+}
+
+/* Distribuye el título, las opciones, la imagen y la tabla. */
+.methodology-comparator {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(220px, 0.82fr) minmax(270px, 1.08fr) minmax(500px, 1.72fr);
+    grid-template-rows: auto 1fr;
+    gap: 18px 24px;
+    align-items: start;
+}
+
+.methodology-comparator > h2 {
+    grid-column: 1 / 3;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(44px, 5vw, 68px);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    text-shadow: 0 0 9px rgba(49, 184, 255, 0.9), 0 0 25px rgba(49, 184, 255, 0.55);
+}
+
+/* Lista de casillas para elegir qué metodologías comparar. */
+.methodology-options {
+    display: grid;
+    grid-column: 1;
+    gap: 14px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.methodology-option {
+    display: flex;
+    min-height: 56px;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    color: #fff;
+    background: #3467ed;
+    cursor: pointer;
+    transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.methodology-option:hover {
+    background: #2857d5;
+    transform: translateX(2px);
+}
+
+.methodology-option input {
+    display: grid;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    place-content: center;
+    margin: 0;
+    border: 3px solid #fff;
+    border-radius: 2px;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.methodology-option input::before {
+    width: 15px;
+    height: 9px;
+    border-bottom: 4px solid #31e955;
+    border-left: 4px solid #31e955;
+    content: "";
+    transform: rotate(-45deg) scale(0);
+}
+
+.methodology-option input:checked::before {
+    transform: rotate(-45deg) scale(1);
+}
+
+.methodology-option input:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.methodology-option span {
+    min-width: 0;
+    font-size: clamp(18px, 2vw, 27px);
+    font-weight: 800;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-shadow: 1px 2px 2px #151515;
+}
+
+.comparator-intro {
+    display: grid;
+    grid-column: 2;
+    grid-template-rows: auto 1fr;
+    min-width: 0;
+    gap: 18px;
+}
+
+.comparator-intro > p {
+    min-width: 0;
+    color: #fff;
+    font-size: clamp(22px, 2.25vw, 31px);
+    font-weight: 800;
+    line-height: 1.28;
+}
+
+.comparator-image {
+    position: relative;
+    display: block;
+    width: min(100%, 390px);
+    aspect-ratio: 366 / 304;
+    justify-self: center;
+    overflow: hidden;
+}
+
+.comparator-image img {
+    position: absolute;
+    top: -14.15%;
+    left: -8.2%;
+    display: block;
+    width: 118.04%;
+    height: 121.72%;
+    max-width: none;
+    object-fit: fill;
+}
+
+/* Permite desplazar la tabla cuando no cabe en la pantalla. */
+.comparison-table-wrap {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: auto;
+    scrollbar-color: #3472ff #10141b;
+}
+
+.methodology-table {
+    width: 100%;
+    min-width: 540px;
+    border-collapse: separate;
+    border-spacing: 8px;
+    table-layout: auto;
+    color: #10131b;
+    font-size: clamp(13px, 1.12vw, 16px);
+    font-weight: 700;
+    text-align: center;
+}
+
+.methodology-table th,
+.methodology-table td {
+    min-width: 132px;
+    height: 70px;
+    padding: 10px 12px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.methodology-table thead th {
+    height: 94px;
+    color: #fff;
+    background: #3467ed;
+    font-size: clamp(14px, 1.1vw, 16px);
+    text-transform: uppercase;
+}
+
+.methodology-table thead th:first-child,
+.methodology-table tbody th {
+    width: 168px;
+    color: #fff;
+    background: #31aef1;
+    text-transform: uppercase;
+}
+
+.methodology-table tbody td {
+    color: #111;
+    background: #fff;
+}
+
+.comparison-status {
+    grid-column: 1 / 3;
+    min-height: 1.3em;
+    color: #9edfff;
+    font-size: 14px;
+}
+
+/* Coloca la tabla debajo de las opciones en pantallas medianas. */
+@media (max-width: 1200px) {
+    .methodology-comparator {
+        grid-template-columns: minmax(200px, 0.8fr) minmax(250px, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 22px;
+    }
+
+    .methodology-comparator > h2 {
+        grid-column: 1 / -1;
+    }
+
+    .methodology-options {
+        grid-column: 1;
+    }
+
+    .comparator-intro {
+        grid-column: 2;
+    }
+
+    .comparison-table-wrap {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .methodology-table {
+        font-size: 15px;
+    }
+
+    .methodology-table th,
+    .methodology-table td {
+        min-width: 165px;
+    }
+
+    .comparison-status {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Apila el comparador y mantiene la tabla desplazable en móviles. */
+@media (max-width: 700px) {
+    .comparison-page > header {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .comparison-page header h1 {
+        position: static;
+        width: auto;
+        max-width: none;
+        transform: none;
+        white-space: normal;
+        font-size: clamp(12px, 3.5vw, 20px);
+        line-height: 1.2;
+    }
+
+    .comparison-page .menu-btn {
+        flex: 0 0 32px;
+    }
+
+    .comparison-content {
+        padding: 28px 16px 38px;
+    }
+
+    .methodology-comparator {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .methodology-comparator > h2,
+    .methodology-options,
+    .comparator-intro,
+    .comparison-table-wrap,
+    .comparison-status {
+        grid-column: 1;
+    }
+
+    .methodology-comparator > h2 {
+        font-size: clamp(32px, 9vw, 58px);
+    }
+
+    .methodology-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .methodology-option {
+        min-height: 54px;
+        gap: 9px;
+        padding: 8px;
+    }
+
+    .methodology-option span {
+        font-size: clamp(15px, 4vw, 19px);
+    }
+
+    .comparator-intro {
+        gap: 14px;
+    }
+
+    .comparator-intro > p {
+        font-size: clamp(21px, 6vw, 27px);
+    }
+
+    .comparator-image {
+        width: 100%;
+        max-width: 390px;
+    }
+
+    .comparison-table-wrap {
+        margin-right: -4px;
+    }
+
+    .methodology-table {
+        min-width: 560px;
+        border-spacing: 6px;
+        font-size: 13px;
+    }
+
+    .methodology-table th,
+    .methodology-table td {
+        min-width: 150px;
+        height: 64px;
+        padding: 8px;
+    }
+
+    .methodology-table thead th {
+        height: 72px;
+    }
+}

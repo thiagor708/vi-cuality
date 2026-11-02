@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos - vi cuality</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="fundamentals-page">
+    <!-- Encabezado con logo, título y menú. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Gestion de la calidad del software</h1>
+        <!-- Botón que muestra los enlaces. -->
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Enlaces de navegación del sitio. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Contenido visual y tarjetas de fundamentos. -->
+    <main class="fundamentals-content">
+        <div class="fundamentals-image fundamentals-image-left" role="img" aria-label="Codigo de software"></div>
+
+        <section class="fundamentals-center">
+            <h2>Fundamentos<br>de calidad</h2>
+            <div class="fundamentals-cards">
+                <article>
+                    <h3>Conceptos clave</h3>
+                    <h4>Construcción de pruebas (TDD)</h4>
+                    <p>Práctica que garantiza la calidad mediante el diseño de pruebas automatizadas antes de la escritura del código base.</p>
+                    <h4>Criterio de hecho (DoD)</h4>
+                    <p>Acuerdo explícito que establece las condiciones de calidad requeridas para considerar que un incremento de software está completamente terminado.</p>
+                    <h4>Calidad en entornos ágiles (Scrum)</h4>
+                    <p>La calidad no depende únicamente de seguir un proceso rígido, sino del talento, el conocimiento tácito del equipo y la entrega continua de valor operativo.</p>
+                </article>
+                <article>
+                    <h3>Métricas</h3>
+                    <p>Las métricas son medidas cuantitativas que permiten evaluar el estado, rendimiento y calidad tanto del producto de software como del proceso de desarrollo.</p>
+                    <h4>Métricas de producto</h4>
+                    <p>Evalúan características internas o externas del software.</p>
+                    <h4>Métricas de proceso</h4>
+                    <p>Evalúan la eficiencia del flujo de trabajo.</p>
+                </article>
+                <article>
+                    <h3>Estándares</h3>
+                    <h4>ISO/IEC 9126 e ISO/IEC 25000 (SQuaRE)</h4>
+                    <p>Estándar internacional histórico que define un modelo de evaluación de la calidad del software dividido en 6 características principales:<br>
+                    <strong>Funcionalidad:</strong> capacidad del software para satisfacer las necesidades declaradas.<br>
+                    <strong>Fiabilidad:</strong> capacidad para mantener un nivel especificado de rendimiento.<br>
+                    <strong>Usabilidad:</strong> facilidad de aprendizaje, comprensión y uso del software por parte del usuario.<br>
+                    <strong>Eficiencia:</strong> rendimiento y optimización de recursos.<br>
+                    <strong>Mantenibilidad:</strong> facilidad para modificar, corregir o actualizar el software.<br>
+                    <strong>Portabilidad:</strong> capacidad del software para ser transferido de un entorno a otro.</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="fundamentals-image fundamentals-image-right" role="img" aria-label="Persona trabajando con una computadora"></div>
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

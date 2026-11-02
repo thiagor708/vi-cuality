@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Encabezado con logo, título y menú. -->
+    <header>
+        <h1>
+            <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+                <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+            </a>
+            <span class="brand-vi">vi</span> cuality
+        </h1>
+        <!-- Botón que muestra los enlaces. -->
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Enlaces de navegación del sitio. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Datos y medios de contacto. -->
+    <main>
+        <h2>Contacto</h2>
+        <p>Estamos para ayudarte.</p>
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>

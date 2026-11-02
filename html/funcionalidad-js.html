@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionalidad adicional JavaScript - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="comparison-page">
+    <!-- Barra superior compartida por las páginas del sitio. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Funcionalidad adicional JavaScript</h1>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Enlaces para navegar por las demás páginas. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Comparador interactivo de metodologías. -->
+    <main class="comparison-content">
+        <section class="methodology-comparator" aria-labelledby="comparator-title">
+            <h2 id="comparator-title">Comparador de<br>metodologías</h2>
+            <!-- Estas casillas permiten elegir qué metodologías mostrar. -->
+            <fieldset class="methodology-options">
+                <legend class="visually-hidden">Elegí las metodologías para comparar</legend>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="cascada" checked>
+                    <span>Cascada</span>
+                </label>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="scrum" checked>
+                    <span>Scrum</span>
+                </label>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="kanban">
+                    <span>Kanban</span>
+                </label>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="xp">
+                    <span>XP</span>
+                </label>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="modelo-v">
+                    <span>Modelo en V</span>
+                </label>
+                <label class="methodology-option">
+                    <input type="checkbox" name="methodology" value="iterativo">
+                    <span>Modelo iterativo e incremental</span>
+                </label>
+            </fieldset>
+            <!-- Texto e imagen que acompañan la comparación. -->
+            <div class="comparator-intro">
+                <p>Seleccione dos o mas metodologias para comparar sus características</p>
+                <div class="comparator-image">
+                    <img src="../imagenes/comparador-metodologias-referencia.png" alt="Código de programación junto a una planta y un peluche">
+                </div>
+            </div>
+            <!-- La tabla se completa desde JavaScript. -->
+            <div class="comparison-table-wrap" role="region" aria-label="Tabla comparativa de metodologías" tabindex="0">
+                <table class="methodology-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p class="comparison-status" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+    <script>
+        // Datos que se muestran en la tabla para cada metodología.
+        const methodologyData = {
+            cascada: {
+                name: "Cascada",
+                values: [
+                    "Secuencial y por fases",
+                    "Al final del proyecto",
+                    "Rígido / Alto costo de modificación",
+                    "PM, Analistas, Testers (especializados)",
+                    "Definido por fase del proyecto",
+                    "Mediano a Grande"
+                ]
+            },
+            scrum: {
+                name: "Scrum",
+                values: [
+                    "Iterativo e incremental",
+                    "Al final de cada Sprint (1 a 4 semanas)",
+                    "Flexible entre Sprints",
+                    "Product Owner, Scrum Master, Developers (Multidisciplinar)",
+                    "Limitado por la capacidad del sprint",
+                    "Pequeño (3 a 9 personas)"
+                ]
+            },
+            kanban: {
+                name: "Kanban",
+                values: [
+                    "Flujo continuo de trabajo",
+                    "Entrega continua según demanda",
+                    "Flexible; cambios en cualquier momento",
+                    "Roles no prescritos",
+                    "Limitado por el WIP acordado",
+                    "Flexible según el flujo de trabajo"
+                ]
+            },
+            xp: {
+                name: "XP",
+                values: [
+                    "Iterativo con ciclos cortos",
+                    "Entregas frecuentes (1 a 3 semanas)",
+                    "Adaptable mediante retroalimentación continua",
+                    "Programadores, cliente y coach",
+                    "Trabajo en curso en iteraciones cortas",
+                    "Pequeño (2 a 12 personas)"
+                ]
+            },
+            "modelo-v": {
+                name: "Modelo en V",
+                values: [
+                    "Secuencial con fases de verificación y validación",
+                    "Al finalizar las fases de prueba",
+                    "Rígido; cambios tardíos son costosos",
+                    "Analistas, desarrolladores y testers",
+                    "Definido por las fases del proyecto",
+                    "Mediano a Grande"
+                ]
+            },
+            iterativo: {
+                name: "Modelo iterativo e incremental",
+                values: [
+                    "Iteraciones que amplían el producto",
+                    "Al cierre de cada iteración",
+                    "Permite ajustes entre iteraciones",
+                    "Equipo multidisciplinario",
+                    "Definido para cada iteración",
+                    "Flexible según el alcance"
+                ]
+            }
+        };
+        const comparisonRows = [
+            "Enfoque principal",
+            "Frecuencia de entrega",
+            "Gestión de cambios",
+            "Roles definidos",
+            "Control de trabajo (WIP)",
+            "Tamaño de equipo (ideal)"
+        ];
+        const methodologyInputs = [...document.querySelectorAll('input[name="methodology"]')];
+        const comparisonHead = document.querySelector(".methodology-table thead");
+        const comparisonBody = document.querySelector(".methodology-table tbody");
+        const comparisonStatus = document.querySelector(".comparison-status");
+
+        // Actualiza la tabla cada vez que cambia una selección.
+        function renderComparison() {
+            const selected = methodologyInputs
+                .filter(input => input.checked)
+                .map(input => methodologyData[input.value]);
+
+            comparisonHead.replaceChildren();
+            comparisonBody.replaceChildren();
+
+            const headerRow = document.createElement("tr");
+            const categoryHeading = document.createElement("th");
+            categoryHeading.scope = "col";
+            categoryHeading.textContent = "Características";
+            headerRow.append(categoryHeading);
+            selected.forEach(methodology => {
+                const heading = document.createElement("th");
+                heading.scope = "col";
+                heading.textContent = methodology.name;
+                headerRow.append(heading);
+            });
+            comparisonHead.append(headerRow);
+
+            // Crea una fila para cada característica comparada.
+            comparisonRows.forEach((rowTitle, rowIndex) => {
+                const row = document.createElement("tr");
+                const title = document.createElement("th");
+                title.scope = "row";
+                title.textContent = rowTitle;
+                row.append(title);
+                selected.forEach(methodology => {
+                    const cell = document.createElement("td");
+                    cell.textContent = methodology.values[rowIndex];
+                    row.append(cell);
+                });
+                comparisonBody.append(row);
+            });
+
+            comparisonStatus.textContent = selected.length < 2
+                ? "Seleccioná al menos dos metodologías para compararlas."
+                : "";
+        }
+
+        // Escucha las casillas y muestra la comparación inicial.
+        methodologyInputs.forEach(input => input.addEventListener("change", renderComparison));
+        renderComparison();
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

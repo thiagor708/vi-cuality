@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos y aprendizaje - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="resources-page">
+    <!-- Barra superior y navegación general. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Recursos y aprendizaje</h1>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Glosario con búsqueda, filtro por letra y definiciones. -->
+    <main class="glossary-content">
+        <section class="glossary" aria-labelledby="glossary-title">
+            <div class="glossary-heading-row">
+                <h2 id="glossary-title">Glosario</h2>
+                <form class="glossary-search" role="search" onsubmit="return false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+                    <input id="glossary-search-input" type="search" placeholder="Escribe aqui para buscar" aria-label="Buscar términos del glosario">
+                    <button class="glossary-clear" type="button" aria-label="Limpiar búsqueda">×</button>
+                </form>
+            </div>
+            <!-- Cada botón filtra los términos que empiezan con esa letra. -->
+            <nav class="glossary-alphabet" aria-label="Filtrar el glosario por letra">
+                <button type="button" data-glossary-letter="A" aria-pressed="false">A</button>
+                <button type="button" data-glossary-letter="B" aria-pressed="false">B</button>
+                <button type="button" data-glossary-letter="C" aria-pressed="false">C</button>
+                <button type="button" data-glossary-letter="D" aria-pressed="false">D</button>
+                <button type="button" data-glossary-letter="E" aria-pressed="false">E</button>
+                <button type="button" data-glossary-letter="F" aria-pressed="false">F</button>
+                <button type="button" data-glossary-letter="G" aria-pressed="false">G</button>
+                <button type="button" data-glossary-letter="H" aria-pressed="false">H</button>
+                <button type="button" data-glossary-letter="I" aria-pressed="false">I</button>
+                <button type="button" data-glossary-letter="J" aria-pressed="false">J</button>
+                <button type="button" data-glossary-letter="K" aria-pressed="false">K</button>
+                <button type="button" data-glossary-letter="L" aria-pressed="false">L</button>
+                <button type="button" data-glossary-letter="M" aria-pressed="false">M</button>
+                <button type="button" data-glossary-letter="N" aria-pressed="false">N</button>
+                <button type="button" data-glossary-letter="O" aria-pressed="false">O</button>
+                <button type="button" data-glossary-letter="P" aria-pressed="false">P</button>
+                <button type="button" data-glossary-letter="Q" aria-pressed="false">Q</button>
+                <button type="button" data-glossary-letter="R" aria-pressed="false">R</button>
+                <button type="button" data-glossary-letter="S" aria-pressed="false">S</button>
+                <button type="button" data-glossary-letter="T" aria-pressed="false">T</button>
+                <button type="button" data-glossary-letter="U" aria-pressed="false">U</button>
+                <button type="button" data-glossary-letter="V" aria-pressed="false">V</button>
+                <button type="button" data-glossary-letter="W" aria-pressed="false">W</button>
+                <button type="button" data-glossary-letter="X" aria-pressed="false">X</button>
+                <button type="button" data-glossary-letter="Y" aria-pressed="false">Y</button>
+                <button type="button" data-glossary-letter="Z" aria-pressed="false">Z</button>
+            </nav>
+            <!-- Tarjetas con los términos y sus definiciones. -->
+            <div class="glossary-grid" id="glossary-entries">
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Aseguramiento de la calidad</h3>
+                    <p>Conjunto de actividades planificadas y sistemáticas orientadas a garantizar que el proceso de desarrollo cumpla con las normas y estándares establecidos.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Bug (Defecto/Error)</h3>
+                    <p>Imperfección o fallo en el código fuente de un programa que impide que este funcione según las especificaciones requeridas.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Control de Calidad</h3>
+                    <p>Enfoque centrado en la inspección y prueba directa del producto software final para identificar y corregir errores antes de su lanzamiento.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Defect Density</h3>
+                    <p>Métrica que calcula el número de errores confirmados encontrados en un software durante un periodo, dividido por el tamaño del módulo.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Análisis Estático</h3>
+                    <p>Examen del código fuente, utilizado para detectar errores, problemas de seguridad o violaciones de patrones de diseño de forma temprana.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Bug Tracking System</h3>
+                    <p>Herramienta de software utilizada para registrar, asignar, priorizar y monitorear el estado de solución de los defectos reportados.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Cobertura de Código</h3>
+                    <p>Métrica que indica el porcentaje del código fuente total que es ejecutado durante la batería de pruebas automáticas.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Definition of Done (DoD)</h3>
+                    <p>Lista compartida de criterios que un elemento del backlog debe cumplir en su totalidad para ser considerado completamente finalizado.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Pruebas de Aceptación</h3>
+                    <p>Fase final de evaluación donde el usuario o cliente verifica si el sistema cumple con los requisitos del negocio para autorizar su despliegue a producción.</p>
+                </article>
+                <article class="glossary-card" data-glossary-term>
+                    <h3>Criterios de Aceptación</h3>
+                    <p>Condiciones específicas y medibles que debe cumplir una funcionalidad para considerarse terminada y satisfactoria para el usuario.</p>
+                </article>
+            </div>
+            <p class="glossary-empty" id="glossary-empty" role="status" hidden>No se encontraron términos con esos criterios.</p>
+        </section>
+        <!-- Respuestas desplegables a las preguntas frecuentes. -->
+        <section class="faq-section" aria-labelledby="faq-title">
+            <div class="faq-heading">
+                <h2 id="faq-title">Preguntas<br>frecuentes</h2>
+                <p>Encuentra una respuesta rapida<br>a las dudas mas comunes</p>
+            </div>
+            <div class="faq-grid">
+                <details class="faq-card" open>
+                    <summary>¿Cuál es la diferencia entre Aseguramiento de la Calidad (QA) y Control de Calidad (QC)?</summary>
+                    <p>QA (Quality Assurance) se enfoca en prevenir errores mediante el diseño, optimización y seguimiento de los procesos de desarrollo. QC (Quality Control) se centra en identificar y corregir defectos en el producto final mediante la ejecución de pruebas y revisiones.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Qué es el Criterio de Aceptación y la Definición de Hecho (Definition of Done)?</summary>
+                    <p>Los Criterios de Aceptación especifican las condiciones del negocio que debe cumplir una funcionalidad concreta para ser aprobada. La Definición de Hecho (DoD) es una lista compartida a nivel de equipo que garantiza que el código sea de calidad.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Qué diferencia hay entre pruebas funcionales y pruebas no funcionales?</summary>
+                    <p>Las pruebas funcionales evalúan lo que hace el software (si la cuenta calcula correctamente, si el inicio de sesión funciona). Las no funcionales evalúan cómo lo hace (rendimiento, seguridad, usabilidad, escalabilidad y tiempos de respuesta).</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Por qué es importante invertir en QA desde las primeras etapas del proyecto?</summary>
+                    <p>Detectar y corregir un error en la fase de análisis o diseño cuesta una fracción de lo que cuesta solucionarlo cuando el software ya está en producción. La detección temprana reduce costos, evita retrasos en las entregas y protege la reputación de la marca.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Cómo se determina el porcentaje de cobertura de código (Code Coverage) adecuado?</summary>
+                    <p>La cobertura de código indica qué porcentaje del fuente ejecutan las pruebas automáticas. Aunque una cobertura del 100% parece ideal, el estándar óptimo suele rondar entre el 80% y 90%, priorizando la calidad y relevancia de los casos de prueba sobre la cantidad.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Cómo se clasifica la gravedad de un bug (Severidad vs. Prioridad)?</summary>
+                    <p>La severidad mide el impacto técnico del fallo sobre el sistema. La prioridad determina la urgencia con la que debe resolverse según el impacto en el negocio.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Cuál es la diferencia entre pruebas manuales y pruebas automatizadas?</summary>
+                    <p>QA (Quality Assurance) se enfoca en prevenir errores mediante el diseño, optimización y seguimiento de los procesos de desarrollo. QC (Quality Control) se centra en identificar y corregir defectos en el producto final mediante la ejecución de pruebas y revisiones.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Qué es una prueba de regresión y cuándo se debe ejecutar?</summary>
+                    <p>Es la reejecución de pruebas sobre funcionalidades existentes para verificar que los nuevos cambios, parches o correcciones de código no hayan introducido fallos no deseados en partes del sistema que previamente funcionaban bien.</p>
+                </details>
+                <details class="faq-card" open>
+                    <summary>¿Qué métricas son esenciales para medir la calidad del desarrollo de software?</summary>
+                    <p>Las métricas clave incluyen la Densidad de Defectos (Defect Density), la Tasa de Escape de Errores a Producción (Defect Escape Rate), la Cobertura de Código (Code Coverage), el Tiempo Medio de Reparación (MTTR) y la Velocidad de Resolución de Bugs.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Guarda los elementos del glosario y los controles de búsqueda.
+        const glossaryCards = [...document.querySelectorAll("[data-glossary-term]")];
+        const glossarySearch = document.getElementById("glossary-search-input");
+        const glossaryLetters = document.querySelectorAll("[data-glossary-letter]");
+        const glossaryEmpty = document.getElementById("glossary-empty");
+        let selectedGlossaryLetter = "";
+
+        // Quita tildes y convierte el texto a minúsculas para facilitar la búsqueda.
+        function normalizeGlossaryText(text) {
+            return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        // Muestra solo las tarjetas que coinciden con la letra y la búsqueda.
+        function filterGlossary() {
+            const query = normalizeGlossaryText(glossarySearch.value.trim());
+            let hasVisibleCards = false;
+            glossaryCards.forEach(card => {
+                const title = card.querySelector("h3").textContent;
+                const matchesLetter = !selectedGlossaryLetter || normalizeGlossaryText(title).startsWith(selectedGlossaryLetter.toLowerCase());
+                const matchesQuery = !query || normalizeGlossaryText(card.textContent).includes(query);
+                card.hidden = !matchesLetter || !matchesQuery;
+                if (!card.hidden) hasVisibleCards = true;
+            });
+            glossaryEmpty.hidden = hasVisibleCards;
+        }
+
+        // Marca las letras que tienen términos disponibles.
+        glossaryLetters.forEach(button => {
+            const letter = button.dataset.glossaryLetter.toLowerCase();
+            const hasEntries = glossaryCards.some(card => normalizeGlossaryText(card.querySelector("h3").textContent).startsWith(letter));
+            button.classList.toggle("has-entries", hasEntries);
+        });
+        // Actualiza los resultados mientras se escribe.
+        glossarySearch.addEventListener("input", filterGlossary);
+        // Activa o desactiva el filtro al pulsar una letra.
+        glossaryLetters.forEach(button => button.addEventListener("click", () => {
+            selectedGlossaryLetter = selectedGlossaryLetter === button.dataset.glossaryLetter ? "" : button.dataset.glossaryLetter;
+            glossaryLetters.forEach(letter => {
+                const isSelected = letter.dataset.glossaryLetter === selectedGlossaryLetter;
+                letter.classList.toggle("active", isSelected);
+                letter.setAttribute("aria-pressed", isSelected);
+            });
+            filterGlossary();
+        }));
+        // Limpia la búsqueda y vuelve a mostrar todos los términos.
+        document.querySelector(".glossary-clear").addEventListener("click", () => {
+            glossarySearch.value = "";
+            glossarySearch.focus();
+            filterGlossary();
+        });
+        // Aplica los filtros al cargar la página.
+        filterGlossary();
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

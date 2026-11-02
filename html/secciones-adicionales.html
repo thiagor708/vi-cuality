@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secciones adicionales - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="additional-page">
+    <!-- Barra superior y enlaces principales del sitio. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Secciones adicionales</h1>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Navegación compartida entre las páginas. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Presentación del equipo y sus integrantes. -->
+    <main class="additional-content">
+        <section class="team-layout" aria-labelledby="team-title">
+            <div class="team-introduction">
+                <h2 id="team-title">¿Qué es<br>ViCuality?</h2>
+                <div class="team-copy">
+                    <p>ViCuality es un grupo formado por sus 4 integrantes (Josefina Raffeto, Thiago Arregui, Keyla rodriguez y Thiago Rodriguez), dedicado a la divulgación de informacion relacionada al desarrollo y calidad del software</p>
+                    <div class="team-motivation">
+                        <h3>Nuestras motivaciones son:</h3>
+                        <ul>
+                            <li>Siempre brindar informacion de manera detallada y sencilla de entender</li>
+                            <li>Atender todo tipo de consulta</li>
+                            <li>Satisfacer al lector con una experiencia grata</li>
+                        </ul>
+                    </div>
+                </div>
+                <img class="team-photo" src="../imagenes/equipo-vicuality.png" alt="Integrantes de un equipo trabajando juntos frente a una computadora">
+            </div>
+            <!-- Tarjetas con el nombre y el rol de cada integrante. -->
+            <div class="team-members" aria-label="Integrantes de ViCuality">
+                <article class="team-member">
+                    <svg class="member-avatar" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <circle cx="50" cy="36" r="20" fill="currentColor"/>
+                        <path d="M11 89v-5c0-15 12-27 27-27h24c15 0 27 12 27 27v5H11z" fill="currentColor"/>
+                    </svg>
+                    <div><h3>Josefina Raffeto</h3><p>Scrum Master</p></div>
+                </article>
+                <article class="team-member">
+                    <svg class="member-avatar" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <circle cx="50" cy="36" r="20" fill="currentColor"/>
+                        <path d="M11 89v-5c0-15 12-27 27-27h24c15 0 27 12 27 27v5H11z" fill="currentColor"/>
+                    </svg>
+                    <div><h3>Thiago Rodriguez</h3><p>Desarrollador</p></div>
+                </article>
+                <article class="team-member">
+                    <svg class="member-avatar" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <circle cx="50" cy="36" r="20" fill="currentColor"/>
+                        <path d="M11 89v-5c0-15 12-27 27-27h24c15 0 27 12 27 27v5H11z" fill="currentColor"/>
+                    </svg>
+                    <div><h3>Thiago Arregui</h3><p>Diseñador</p></div>
+                </article>
+                <article class="team-member">
+                    <svg class="member-avatar" viewBox="0 0 100 100" aria-hidden="true">
+                        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <circle cx="50" cy="36" r="20" fill="currentColor"/>
+                        <path d="M11 89v-5c0-15 12-27 27-27h24c15 0 27 12 27 27v5H11z" fill="currentColor"/>
+                    </svg>
+                    <div><h3>Keyla Rodriguez</h3><p>Tester</p></div>
+                </article>
+            </div>
+        </section>
+        <!-- Formulario para que el visitante escriba una consulta. -->
+        <section class="contact-section" aria-labelledby="contact-title">
+            <div class="contact-introduction">
+                <h2 id="contact-title">Formulario<br>de contacto</h2>
+                <h3>¿Tenés alguna duda?</h3>
+                <p>Contactanos rellenando este formulario y enviando tu consulta por el mismo.<br>Responderemos a la brevedad!</p>
+                <img src="../imagenes/fotofundamentos1.jpeg" alt="Persona escribiendo en una computadora portátil">
+            </div>
+            <form class="contact-form">
+                <div class="contact-field">
+                    <label for="contact-name">Nombre</label>
+                    <input id="contact-name" name="nombre" type="text" placeholder="ej. maria" autocomplete="given-name" required>
+                </div>
+                <div class="contact-field">
+                    <label for="contact-surname">Apellido</label>
+                    <input id="contact-surname" name="apellido" type="text" placeholder="ej. reyes" autocomplete="family-name" required>
+                </div>
+                <div class="contact-field">
+                    <label for="contact-email">Correo</label>
+                    <input id="contact-email" name="correo" type="email" placeholder="ej. prueba@gmail.com" autocomplete="email" required>
+                </div>
+                <div class="contact-field contact-message">
+                    <label for="contact-message">Tu mensaje</label>
+                    <textarea id="contact-message" name="mensaje" rows="4" required></textarea>
+                </div>
+                <button class="contact-submit" type="submit" aria-label="Enviar consulta">
+                    <svg viewBox="0 0 32 20" aria-hidden="true">
+                        <path d="M2 10h25M19 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <p class="contact-status" role="status" hidden>El formulario todavía no está conectado a un servicio de envío.</p>
+            </form>
+        </section>
+    </main>
+    <script>
+        // Avisa que el formulario todavía no está conectado a un servicio de envío.
+        document.querySelector(".contact-form").addEventListener("submit", event => {
+            event.preventDefault();
+            document.querySelector(".contact-status").hidden = false;
+        });
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

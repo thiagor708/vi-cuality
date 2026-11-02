@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesos de desarrollo de software - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="process-page">
+    <!-- Encabezado con logo, título y menú. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Procesos de desarrollo de software</h1>
+        <!-- Botón que muestra los enlaces. -->
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Enlaces de navegación del sitio. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Contenido de procesos de desarrollo. -->
+    <main>
+        <!-- Introducción al ciclo de vida del software. -->
+        <section class="sdlc-top">
+            <h2 class="sdlc-title">Ciclo de vida del desarrollo de software</h2>
+            <article class="sdlc-info">
+                <h3>¿Que es?</h3>
+                <p>El Ciclo de Vida del Desarrollo de Software (SDLC) es un marco de trabajo estructurado que define las etapas necesarias para planificar, crear, probar y desplegar un sistema o producto de software.</p>
+            </article>
+            <article class="sdlc-info">
+                <h3>Importancia en la construccion de software</h3>
+                <p>es fundamental en la construccion de software porque proporciona un marco de trabajo estructurado y metódico que transforma una idea abstracta en un producto funcional, seguro y mantenible.</p>
+            </article>
+        </section>
+
+        <!-- Cuadro que explica la etapa seleccionada. -->
+        <div class="sdlc-callout-wrap" id="calloutWrap">
+            <div class="sdlc-callout" id="callout">Se recopilan y analizan las necesidades de los usuarios y los objetivos del negocio para definir qué debe hacer exactamente el sistema.</div>
+        </div>
+
+        <!-- Línea de tiempo con las etapas. -->
+        <section class="sdlc-steps" id="steps">
+            <button class="sdlc-step active" data-text="Se recopilan y analizan las necesidades de los usuarios y los objetivos del negocio para definir qué debe hacer exactamente el sistema.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h1M11 8h5M8 12h1M11 12h5M8 16h1M11 16h5"/></svg></span>
+                <span class="sdlc-label">requisitos</span>
+            </button>
+            <button class="sdlc-step" data-text="Se define la arquitectura, la base de datos y la interfaz del sistema, creando el plano que guiará la construcción.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-5L16 4l4 4L9 19z"/><path d="M14 6l4 4"/></svg></span>
+                <span class="sdlc-label">diseño</span>
+            </button>
+            <button class="sdlc-step" data-text="Los programadores escriben el código fuente siguiendo el diseño y los estándares de calidad acordados.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v13H6z"/><path d="M10 12l-2 2 2 2M15 12l2 2-2 2M13 11l-2 6"/></svg></span>
+                <span class="sdlc-label">desarrollo</span>
+            </button>
+            <button class="sdlc-step" data-text="Se verifica que el software funcione correctamente y cumpla los requisitos, detectando y corrigiendo errores.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3h6V3M8 10h8M8 13h8M8 16h5"/></svg></span>
+                <span class="sdlc-label">pruebas</span>
+            </button>
+            <button class="sdlc-step" data-text="El sistema se publica en el entorno real para que los usuarios finales puedan comenzar a utilizarlo.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11z"/><circle cx="12" cy="10" r="1.5"/><path d="M7 14l-3 3 3 .5M17 14l3 3-3 .5M10 20l2 2 2-2"/></svg></span>
+                <span class="sdlc-label">despliegue</span>
+            </button>
+            <button class="sdlc-step" data-text="Se corrigen fallos, se actualiza y se mejora el sistema una vez en producción para mantenerlo útil y seguro.">
+                <span class="sdlc-circle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6a4 4 0 0 0 5 5l-9 9a2 2 0 0 1-3-3l9-9z"/><path d="M4 7l3-3 3 3-3 3zM14 14l5 5"/></svg></span>
+                <span class="sdlc-label">mantenimiento</span>
+            </button>
+        </section>
+    
+        <!-- Paneles informativos y botones para comparar modelos tradicionales. -->
+        <section class="models-section">
+            <div class="model-panel" id="panel-cascada">
+                <div class="model-info"><h4>Tipo de enfoque</h4><p>Es un enfoque tradicional de gestión de proyectos caracterizado por un desarrollo secuencial y lineal. El proceso fluye paso a paso a través de fases estrictamente delimitadas, donde cada etapa debe completarse y aprobarse por completo antes de iniciar la siguiente.</p><h4>Proceso del modelo</h4><p>Comienza con el Análisis de Requisitos, donde se definen y documentan todas las necesidades del cliente. A continuación, en el Diseño del Sistema, los arquitectos estructuran la infraestructura técnica, las bases de datos y las interfaces de usuario antes de comenzar a programar.</p><h4>Pruebas</h4><p>En las fases de Implementación y Pruebas, los desarrolladores escriben el código fuente basándose en los diseños previos. Luego, el equipo de QA ejecuta pruebas integrales para detectar y corregir errores antes de entregar el producto.</p><h4>Cuando utilizarlo</h4><p>Es un modelo idóneo para proyectos con requisitos claros, estables y de bajo riesgo de cambio.</p></div>
+                <div class="pc-card pros"><h4>ventajas</h4><ul><li>Claridad y sencillez</li><li>Documentación rigurosa</li><li>Objetivos bien definidos</li><li>Hitos y control claros</li><li>Ideal para requisitos estables</li></ul></div>
+                <div class="pc-card cons"><h4>desventajas</h4><ul><li>Poca flexibilidad al cambio</li><li>No apto para proyectos complejos o dinámicos</li><li>Riesgo acumulado en la fase de pruebas</li><li>Feedback tardío del cliente</li><li>Entrega tardía del producto</li></ul></div>
+            </div>
+            <div class="model-panel" id="panel-v" hidden>
+                <div class="model-info"><h4>Tipo de enfoque</h4><p>Es una extensión del modelo en cascada que asocia cada fase de desarrollo con una fase de pruebas correspondiente, formando una V.</p><h4>Proceso del modelo</h4><p>La rama descendente cubre requisitos, diseño y codificación; la ascendente sube con pruebas unitarias, de integración, de sistema y de aceptación.</p><h4>Pruebas</h4><p>Cada prueba valida lo definido en su fase paralela y se planifica desde el inicio del proyecto.</p><h4>Cuando utilizarlo</h4><p>Es ideal para proyectos con requisitos estables donde la verificación y validación son críticas.</p></div>
+                <div class="pc-card pros"><h4>ventajas</h4><ul><li>Pruebas planificadas desde el inicio</li><li>Detección temprana de defectos</li><li>Verificación y validación claras</li><li>Fácil de gestionar</li><li>Ideal para sistemas críticos</li></ul></div>
+                <div class="pc-card cons"><h4>desventajas</h4><ul><li>Poca flexibilidad al cambio</li><li>Cambiar requisitos es costoso</li><li>No entrega software temprano</li><li>Riesgo si los requisitos fallan</li><li>No apto para proyectos dinámicos</li></ul></div>
+            </div>
+            <div class="model-panel" id="panel-iterativo" hidden>
+                <div class="model-info"><h4>Tipo de enfoque</h4><p>Divide el proyecto en ciclos cortos (iteraciones); en cada uno se entrega un incremento funcional que se suma al producto.</p><h4>Proceso del modelo</h4><p>En cada iteración se repiten análisis, diseño, desarrollo y pruebas, refinando el sistema con lo aprendido en el ciclo anterior.</p><h4>Pruebas</h4><p>Se prueba cada incremento al terminar su iteración, lo que permite corregir errores de forma continua.</p><h4>Cuando utilizarlo</h4><p>Es adecuado cuando los requisitos pueden cambiar o se necesita entregar valor al cliente de forma temprana.</p></div>
+                <div class="pc-card pros"><h4>ventajas</h4><ul><li>Entregas funcionales tempranas</li><li>Flexibilidad ante cambios</li><li>Feedback continuo del cliente</li><li>Riesgos detectados a tiempo</li><li>Mejora progresiva del producto</li></ul></div>
+                <div class="pc-card cons"><h4>desventajas</h4><ul><li>Requiere buena planificación</li><li>Arquitectura difícil de mantener</li><li>Mayor costo de gestión</li><li>Puede crecer sin control</li><li>Exige participación constante</li></ul></div>
+            </div>
+            <!-- Cada botón muestra la ilustración y el panel del modelo elegido. -->
+            <h2 class="models-title">Ilustraciones de<br>modelos tradicionales</h2>
+            <div class="model-tabs">
+                <button class="model-tab active" data-model="cascada" aria-controls="panel-cascada" aria-selected="true">
+                    <span class="model-tab-title">modelo en cascada</span>
+                    <img src="../imagenes/modelo-cascada.png" alt="Diagrama del modelo en cascada">
+                </button>
+                <button class="model-tab" data-model="v" aria-controls="panel-v" aria-selected="false">
+                    <span class="model-tab-title">modelo en V</span>
+                    <img src="../imagenes/modelo-v.png" alt="Diagrama del modelo en V">
+                </button>
+                <button class="model-tab" data-model="iterativo" aria-controls="panel-iterativo" aria-selected="false">
+                    <span class="model-tab-title">modelo iterativo<br>e incremental</span>
+                    <img src="../imagenes/modelo-iterativo.png" alt="Diagrama del modelo iterativo e incremental">
+                </button>
+            </div>
+        </section>
+        <!-- Resumen de los valores y principios ágiles. -->
+        <section class="process-agile-summary" aria-labelledby="agile-summary-title">
+            <h2 id="agile-summary-title">Metodologías ágiles</h2>
+            <div class="process-agile-summary-grid">
+                <article class="agile-summary-card agile-principles">
+                    <h3>Los 12 principios</h3>
+                    <ul>
+                        <li>Satisfacción del cliente</li>
+                        <li>Bienvenidos los cambios</li>
+                        <li>Entrega frecuente</li>
+                        <li>Trabajo conjunto</li>
+                        <li>Individuos motivados</li>
+                        <li>Conversación cara a cara</li>
+                        <li>Software funcionando</li>
+                        <li>Desarrollo sostenible</li>
+                        <li>Excelencia técnica</li>
+                        <li>Simplicidad</li>
+                        <li>Equipos autoorganizados</li>
+                        <li>Reflexión periódica</li>
+                    </ul>
+                </article>
+                <div class="agile-values-column">
+                    <article class="agile-summary-card agile-values">
+                        <h3>Los 4 valores fundamentales</h3>
+                        <ul>
+                            <li>Individuos e interacciones sobre procesos y herramientas</li>
+                            <li>Software funcionando sobre documentación extensiva</li>
+                            <li>Colaboración con el cliente sobre negociación contractual</li>
+                            <li>Respuesta ante el cambio sobre seguir un plan</li>
+                        </ul>
+                    </article>
+                    <p>Las metodologías ágiles dividen los proyectos en partes pequeñas para entregar resultados rápidos y adaptarse a los cambios.</p>
+                    <strong>Algunas de las principales metodologías ágiles son:</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pestañas con información de principios, roles, artefactos y eventos. -->
+        <section class="process-agile-details" aria-label="Principios, roles, artefactos y eventos de metodologías ágiles">
+            <div class="process-agile-toolbar">
+                <div class="process-agile-tabs" role="tablist" aria-label="Secciones de metodologías ágiles">
+                    <button type="button" class="process-agile-tab active" id="agile-tab-principios" role="tab" aria-controls="agile-panel-principios" aria-selected="true" tabindex="0" data-agile-section="principios">Principios</button>
+                    <button type="button" class="process-agile-tab" id="agile-tab-roles" role="tab" aria-controls="agile-panel-roles" aria-selected="false" tabindex="-1" data-agile-section="roles">Roles</button>
+                    <button type="button" class="process-agile-tab" id="agile-tab-artefactos" role="tab" aria-controls="agile-panel-artefactos" aria-selected="false" tabindex="-1" data-agile-section="artefactos">Artefactos</button>
+                    <button type="button" class="process-agile-tab" id="agile-tab-eventos" role="tab" aria-controls="agile-panel-eventos" aria-selected="false" tabindex="-1" data-agile-section="eventos">Eventos</button>
+                </div>
+                <h2 id="agile-panel-title">Principios</h2>
+            </div>
+            <section class="process-agile-panel" id="agile-panel-principios" role="tabpanel" aria-labelledby="agile-tab-principios" data-agile-panel="principios">
+                <div class="agile-method-cards">
+                    <article class="agile-method-card">
+                        <h3>Metodología Kanban</h3>
+                        <ul>
+                            <li><strong>Empieza por lo que haces ahora:</strong> utiliza tu proceso actual y respeta los roles, responsabilidades y cargos que ya existen en la organización.</li>
+                            <li><strong>Acuerda impulsar un cambio gradual y evolutivo:</strong> promueve mejoras pequeñas y continuas en lugar de transformaciones drásticas que generen resistencia.</li>
+                            <li><strong>Respeta el proceso, los roles y las responsabilidades vigentes:</strong> permite una transición fluida sin desestabilizar la estructura actual de trabajo.</li>
+                            <li><strong>Fomenta el liderazgo en todos los niveles:</strong> motiva a cualquier miembro del equipo a tomar la iniciativa y proponer mejoras desde su posición.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología XP</h3>
+                        <ul>
+                            <li><strong>Retroalimentación rápida:</strong> los equipos miden y responden de inmediato a los resultados del código, las pruebas y los comentarios de los usuarios.</li>
+                            <li><strong>Asumir simplicidad:</strong> se escribe únicamente el código necesario para resolver el problema actual, evitando complejidades innecesarias.</li>
+                            <li><strong>Cambio incremental:</strong> los grandes objetivos se dividen en pequeñas pruebas y entregas continuas que reducen el riesgo técnico.</li>
+                            <li><strong>Abrazar el cambio:</strong> los nuevos requerimientos se ven como una oportunidad para aportar mayor valor al proceso.</li>
+                            <li><strong>Calidad del trabajo:</strong> se mantiene un estándar alto mediante pruebas constantes y refactorización.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología Scrum</h3>
+                        <ul>
+                            <li><strong>Transparencia:</strong> los aspectos significativos del proceso deben ser visibles para todos los responsables del resultado.</li>
+                            <li><strong>Inspección:</strong> se revisan con frecuencia los artefactos de Scrum y el progreso hacia el objetivo para detectar desviaciones.</li>
+                            <li><strong>Adaptación:</strong> se ajusta el proceso o el producto cuando la inspección revela que algo no cumple los criterios aceptables.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+            <section class="process-agile-panel" id="agile-panel-roles" role="tabpanel" aria-labelledby="agile-tab-roles" data-agile-panel="roles" hidden>
+                <div class="agile-method-cards">
+                    <article class="agile-method-card">
+                        <h3>Metodología Scrum</h3>
+                        <ul>
+                            <li><strong>Product Owner (propietario del producto):</strong> es responsable de maximizar el valor del producto y gestionar el trabajo del equipo.</li>
+                            <li><strong>Scrum Master:</strong> es el líder servicial y facilitador que guía al equipo en las prácticas de Scrum.</li>
+                            <li><strong>Developers (desarrolladores):</strong> son los profesionales encargados de crear el producto funcional en cada ciclo de trabajo.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología XP</h3>
+                        <ul>
+                            <li><strong>Customer (cliente):</strong> representa al negocio y decide qué se debe construir.</li>
+                            <li><strong>Programmer (desarrollador):</strong> diseña y escribe el código, asegurando la calidad técnica.</li>
+                            <li><strong>Tester (probador):</strong> ayuda al cliente a definir y ejecutar las pruebas funcionales.</li>
+                            <li><strong>Tracker (rastreador):</strong> lleva el seguimiento del proyecto y mide el progreso.</li>
+                            <li><strong>Coach (entrenador):</strong> guía al equipo en los valores, principios y prácticas de XP.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología Kanban</h3>
+                        <ul>
+                            <li><strong>Gestor de prestación de servicios:</strong> optimiza el flujo de trabajo y procura entregas eficientes y valiosas.</li>
+                            <li><strong>Gestor de peticiones de servicio:</strong> administra la demanda y los requerimientos de clientes e interesados.</li>
+                            <li><strong>Coach de Kanban:</strong> orienta al equipo en la adopción del marco y fomenta la mejora continua.</li>
+                            <li><strong>Patrocinador:</strong> proporciona apoyo directivo y ayuda a superar los obstáculos del cambio.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+            <section class="process-agile-panel" id="agile-panel-artefactos" role="tabpanel" aria-labelledby="agile-tab-artefactos" data-agile-panel="artefactos" hidden>
+                <div class="agile-method-cards">
+                    <article class="agile-method-card">
+                        <h3>Metodología Scrum</h3>
+                        <ul>
+                            <li><strong>Product Backlog:</strong> lista ordenada y priorizada de todo lo necesario para el producto; es la fuente del trabajo del equipo.</li>
+                            <li><strong>Sprint Backlog:</strong> elementos seleccionados para el Sprint junto con el plan para entregarlos y convertirlos en un incremento validado.</li>
+                            <li><strong>Incremento:</strong> resultado funcional de los elementos completados durante el Sprint, sumado a los incrementos anteriores.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología XP</h3>
+                        <ul>
+                            <li><strong>Historias de usuario:</strong> descripciones breves de características del sistema, escritas por el cliente en lenguaje natural.</li>
+                            <li><strong>Tarjetas CRC:</strong> describen clases, responsabilidades y colaboradores para ayudar a diseñar el software.</li>
+                            <li><strong>Tareas de ingeniería:</strong> desglosan las historias de usuario en tareas técnicas más pequeñas.</li>
+                            <li><strong>Pruebas de aceptación:</strong> verifican que las historias de usuario funcionen de la forma esperada.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología Kanban</h3>
+                        <ul>
+                            <li><strong>Tablero Kanban:</strong> superficie física o digital que visualiza el flujo de trabajo de principio a fin.</li>
+                            <li><strong>Columnas:</strong> representan las etapas o estados por los que pasa una tarea.</li>
+                            <li><strong>Tarjetas Kanban:</strong> representan individualmente cada tarea o elemento de trabajo.</li>
+                            <li><strong>Límites de trabajo en curso (WIP):</strong> cantidad máxima de tarjetas permitidas en una columna para evitar saturación.</li>
+                            <li><strong>Puntos de compromiso y entrega:</strong> indican cuándo una tarea entra al flujo activo y cuándo se considera finalizada.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+            <section class="process-agile-panel" id="agile-panel-eventos" role="tabpanel" aria-labelledby="agile-tab-eventos" data-agile-panel="eventos" hidden>
+                <div class="agile-method-cards">
+                    <article class="agile-method-card">
+                        <h3>Metodología Scrum</h3>
+                        <ul>
+                            <li><strong>Sprint Planning:</strong> al inicio del Sprint, el equipo define el objetivo y selecciona los elementos del Product Backlog.</li>
+                            <li><strong>Daily Scrum:</strong> reunión diaria de hasta 15 minutos para inspeccionar el progreso y ajustar el plan de las próximas 24 horas.</li>
+                            <li><strong>Sprint Review:</strong> al final del Sprint, se inspecciona el incremento con los interesados y se adapta el Product Backlog.</li>
+                            <li><strong>Sprint Retrospective:</strong> el equipo reflexiona sobre su desempeño y planifica mejoras para el siguiente ciclo.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología XP</h3>
+                        <ul>
+                            <li><strong>The Planning Game:</strong> cliente y equipo estiman y priorizan las historias que formarán parte de las iteraciones.</li>
+                            <li><strong>Iteration Planning:</strong> define las tareas técnicas y los compromisos de entrega de la iteración.</li>
+                            <li><strong>Reunión diaria:</strong> sincroniza al equipo y facilita la coordinación y resolución de impedimentos.</li>
+                            <li><strong>Retrospectiva de iteración:</strong> al cierre del ciclo, se revisan las dinámicas del equipo y las prácticas de desarrollo.</li>
+                        </ul>
+                    </article>
+                    <article class="agile-method-card">
+                        <h3>Metodología Kanban</h3>
+                        <ul>
+                            <li><strong>Daily Standup:</strong> reunión breve frente al tablero para identificar tareas bloqueadas, causas y acciones inmediatas.</li>
+                            <li><strong>Replenishment Meeting:</strong> encuentro periódico para priorizar el backlog y decidir qué nuevas tareas entran al flujo.</li>
+                            <li><strong>Service Delivery Review:</strong> analiza métricas de rendimiento para evaluar si se cumplen los acuerdos de nivel de servicio.</li>
+                            <li><strong>Operations and Risk Reviews:</strong> analizan áreas, riesgos y dependencias complejas entre equipos.</li>
+                            <li><strong>Revisión de implementación:</strong> evalúa cómo se introducen y aplican las prácticas Kanban.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script>
+        // Cambia entre los modelos tradicionales.
+        document.querySelectorAll(".model-tab").forEach(t => t.addEventListener("click", () => {
+            // Actualiza el botón seleccionado y su estado accesible.
+            document.querySelectorAll(".model-tab").forEach(x => {
+                const isActive = x === t;
+                x.classList.toggle("active", isActive);
+                x.setAttribute("aria-selected", isActive);
+            });
+            document.querySelectorAll(".model-panel").forEach(x => x.hidden = x.id !== "panel-" + t.dataset.model);
+        }));
+    </script>
+    <script>
+        // Cambia entre las secciones de metodologías ágiles.
+        const agileButtons = document.querySelectorAll(".process-agile-tab");
+        const agilePanels = document.querySelectorAll(".process-agile-panel");
+        const agileTitle = document.getElementById("agile-panel-title");
+        agileButtons.forEach(button => button.addEventListener("click", () => {
+            const selectedSection = button.dataset.agileSection;
+            agileButtons.forEach(item => {
+                const isSelected = item === button;
+                item.classList.toggle("active", isSelected);
+                item.setAttribute("aria-selected", isSelected);
+                item.tabIndex = isSelected ? 0 : -1;
+            });
+            agilePanels.forEach(panel => {
+                panel.hidden = panel.dataset.agilePanel !== selectedSection;
+            });
+            agileTitle.textContent = button.textContent;
+        }));
+            // Permite recorrer las pestañas con las flechas del teclado.
+            document.querySelector(".process-agile-tabs").addEventListener("keydown", event => {
+            const currentIndex = Array.from(agileButtons).indexOf(document.activeElement);
+            if (currentIndex < 0 || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+            event.preventDefault();
+            const direction = event.key === "ArrowRight" ? 1 : -1;
+            const nextIndex = (currentIndex + direction + agileButtons.length) % agileButtons.length;
+            agileButtons[nextIndex].focus();
+            agileButtons[nextIndex].click();
+        });
+    </script>
+    <script>
+        // Muestra la descripción de la etapa elegida y mueve la flecha del cuadro hacia ella.
+        const wrap = document.getElementById("calloutWrap");
+        const callout = document.getElementById("callout");
+        const stepBtns = document.querySelectorAll(".sdlc-step");
+        // Activa una etapa y coloca el cuadro de texto debajo de su botón.
+        function selectStep(btn) {
+            stepBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            callout.textContent = btn.dataset.text;
+            const w = wrap.getBoundingClientRect(), s = btn.querySelector(".sdlc-circle").getBoundingClientRect();
+            const center = s.left + s.width / 2 - w.left;
+            const left = Math.max(0, Math.min(center - 80, w.width - callout.offsetWidth));
+            callout.style.left = left + "px";
+            callout.style.setProperty("--arrow-x", (center - left) + "px");
+        }
+        // Actualiza el cuadro al hacer clic, cargar la página o cambiar el tamaño.
+        stepBtns.forEach(b => b.addEventListener("click", () => selectStep(b)));
+        window.addEventListener("load", () => selectStep(document.querySelector(".sdlc-step.active")));
+        window.addEventListener("resize", () => selectStep(document.querySelector(".sdlc-step.active")));
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metodologías en detalle - vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="methodologies-page">
+    <!-- Barra superior y navegación general. -->
+    <header>
+        <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+            <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+        </a>
+        <h1>Metodologías en detalle</h1>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+        <!-- Enlaces para navegar por las demás páginas. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+    <!-- Descripción de Scrum, con pestañas para ver sus detalles. -->
+    <main class="methodologies-content">
+        <section class="scrum-overview" aria-labelledby="scrum-title">
+            <div class="scrum-process">
+           
+                <h2 id="scrum-title">Scrum en<br>profundidad</h2>
+                <p class="scrum-intro">Un marco de trabajo para crear valor mediante soluciones adaptativas a problemas complejos.</p>
+                <img class="scrum-flow-image" src="../imagenes/scrum-flow.png" alt="Diagrama del ciclo Scrum: Sprint Planning, Sprint, Sprint Review, retrospectiva e incremento del producto">
+                <p class="scrum-process-note">Cada Sprint crea una oportunidad para entregar, recibir feedback y mejorar la forma de trabajar.</p>
+            </div>
+
+            <section class="scrum-detail" aria-label="Detalles del marco Scrum">
+                <div class="scrum-tabs" role="tablist" aria-label="Contenido de Scrum">
+                    <button class="scrum-tab" id="scrum-tab-roles" type="button" role="tab" aria-controls="scrum-panel-roles" aria-selected="false" tabindex="-1" data-scrum-tab="roles">Roles</button>
+                    <button class="scrum-tab active" id="scrum-tab-eventos" type="button" role="tab" aria-controls="scrum-panel-eventos" aria-selected="true" tabindex="0" data-scrum-tab="eventos">Eventos</button>
+                    <button class="scrum-tab" id="scrum-tab-artefactos" type="button" role="tab" aria-controls="scrum-panel-artefactos" aria-selected="false" tabindex="-1" data-scrum-tab="artefactos">Artefactos</button>
+                </div>
+                <div class="scrum-panels">
+                    <section class="scrum-panel" id="scrum-panel-roles" role="tabpanel" aria-labelledby="scrum-tab-roles" data-scrum-panel="roles" hidden>
+                        <div class="scrum-panel-heading">
+                            <span class="scrum-panel-icon" aria-hidden="true">◎</span>
+                            <div><h3>Responsabilidades</h3><p>Un equipo pequeño, multifuncional y autogestionado.</p></div>
+                        </div>
+                        <article class="scrum-detail-item">
+                            <h4>Product Owner</h4>
+                            <p>Maximiza el valor del producto. Define y ordena el Product Backlog, comunica el objetivo y ayuda a que el equipo trabaje primero en lo más importante.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Scrum Master</h4>
+                            <p>Ayuda a que Scrum se entienda y aplique correctamente. Facilita la colaboración, acompaña al equipo y ayuda a eliminar impedimentos.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Developers</h4>
+                            <p>Son quienes crean el incremento. Planifican el trabajo del Sprint, cuidan la calidad y se organizan para alcanzar el objetivo acordado.</p>
+                        </article>
+                    </section>
+                    <section class="scrum-panel" id="scrum-panel-eventos" role="tabpanel" aria-labelledby="scrum-tab-eventos" data-scrum-panel="eventos">
+                        <div class="scrum-panel-heading">
+                            <span class="scrum-panel-icon" aria-hidden="true">☷</span>
+                            <div><h3>Descripción</h3><p>En este apartado se detallan las prácticas y actividades que constituyen la rutina de trabajo en scrum.</p></div>
+                        </div>
+                        <article class="scrum-detail-item">
+                            <h4>Sprint</h4>
+                            <p>Es el núcleo fundamental de scrum, en torno al que se organizan todos los demás. A veces se llama también «iteración». Es el nombre que recibe cada etapa de trabajo con un objetivo concreto dentro del proyecto. La división del trabajo en sprints, que tienen una duración fija y constante (a esto se suele denominar timeboxing) permite mantener el ritmo de avance.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Sprint planning</h4>
+                            <p>Marca el inicio de cada sprint. En ella se determina cuál es el objetivo de éste y las tareas necesarias para conseguirlo.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Scrum diario</h4>
+                            <p>Breve reunión diaria en la que el equipo hace punto de situación para confirmar que se está avanzando al ritmo adecuado, o si hay algún impedimento detectarlo y actuar en consecuencia lo antes posible.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Scrum diario</h4>
+                            <p>Análisis e inspección del «incremento» generado, y adaptación de la pila del producto si resulta necesario.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Retrospectiva del sprint</h4>
+                            <p>Reunión al finalizar el sprint en la que el equipo analiza aspectos operativos de su forma de trabajo y crea un plan de mejoras, para aplicarlo en la siguiente iteración.</p>
+                        </article>
+                    </section>
+                    <section class="scrum-panel" id="scrum-panel-artefactos" role="tabpanel" aria-labelledby="scrum-tab-artefactos" data-scrum-panel="artefactos" hidden>
+                        <div class="scrum-panel-heading">
+                            <span class="scrum-panel-icon" aria-hidden="true">▤</span>
+                            <div><h3>Artefactos</h3><p>Información transparente sobre el trabajo y el valor.</p></div>
+                        </div>
+                        <article class="scrum-detail-item">
+                            <h4>Product Backlog</h4>
+                            <p>Lista emergente y ordenada de lo necesario para mejorar el producto. Su compromiso es el Product Goal.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Sprint Backlog</h4>
+                            <p>Incluye el objetivo del Sprint, los elementos elegidos del Product Backlog y el plan de trabajo para entregar el incremento.</p>
+                        </article>
+                        <article class="scrum-detail-item">
+                            <h4>Incremento</h4>
+                            <p>Resultado concreto y utilizable que cumple la Definition of Done y se integra con los incrementos anteriores.</p>
+                        </article>
+                        <div class="scrum-commitments">
+                            <h4>Compromisos</h4>
+                            <p><strong>Product Goal</strong> para el Product Backlog · <strong>Sprint Goal</strong> para el Sprint Backlog · <strong>Definition of Done</strong> para el Incremento.</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+        <!-- Explicación visual del flujo de trabajo de Kanban. -->
+        <section class="kanban-overview" aria-labelledby="kanban-title">
+            <div class="kanban-introduction">
+                <p class="kanban-eyebrow">Flujo continuo · mejora constante</p>
+                <h2 id="kanban-title">Kanban en<br>profundidad</h2>
+                <article class="kanban-copy">
+                    <h3>¿Que es la metodologia kanban?</h3>
+                    <p>La metodología Kanban es un sistema de gestión visual de procesos enfocado en controlar, optimizar y flexibilizar el flujo de trabajo en tiempo real, su objetivo fundamental no es solo organizar listas de pendientes, sino hacer visible el proceso productivo para identificar ineficiencias, eliminar desperdicios y entregar valor de forma constante.</p>
+                </article>
+                <article class="kanban-copy">
+                    <h3>¿Que es un tablero de kanban?</h3>
+                    <p>El tablero Kanban es una herramienta visual de gestión de trabajo que permite dividir un proceso en 3 etapas (por hacer, en proceso, hecho) claras para controlar el flujo, evitar sobrecargas y optimizar tiempos.</p>
+                </article>
+                <div class="kanban-principles" aria-label="Principios principales de Kanban">
+                    <span>Visualizar el trabajo</span>
+                    <span>Limitar el trabajo en curso</span>
+                    <span>Mejorar el flujo</span>
+                </div>
+            </div>
+            <section class="kanban-board" aria-label="Ejemplo de tablero Kanban">
+                <div class="kanban-column">
+                    <div class="kanban-column-header">
+                        <div><span class="kanban-column-indicator"></span><h3>Por hacer</h3></div>
+                    </div>
+                    <article class="kanban-card">
+                        <p>en esta seccion se redactan las tareas pendientes en tarjetas individuales</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>cada tarjeta detalla el alcance, responsable y fecha de su tarea</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>Se ordenan verticalmente de mayor a menor prioridad</p>
+                    </article>
+                </div>
+                <div class="kanban-column kanban-column-active">
+                    <div class="kanban-column-header">
+                        <div><span class="kanban-column-indicator"></span><h3>En proceso</h3></div>
+                    </div>
+                    <article class="kanban-card">
+                        <p>representa el trabajo activo. Incluye todas las tareas en las que alguien ya está trabajando en el momento presente</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>Un colaborador "jala" (pull) la tarjeta prioritaria de la columna "Por Hacer" cuando se libera de su tarea anterior</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>Si surge un problema, la tarjeta se marca de forma visual (por ejemplo, con una etiqueta roja) para pedir ayuda de inmediato</p>
+                    </article>
+                </div>
+                <div class="kanban-column kanban-column-done">
+                    <div class="kanban-column-header">
+                        <div><span class="kanban-column-indicator"></span><h3>Hecho</h3></div>
+                    </div>
+                    <article class="kanban-card">
+                        <p>Esta columna representa el final del flujo de trabajo y reúne todas las tareas que han sido completadas con éxito</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>Las tarjetas se mueven automáticamente aquí cuando el producto, entrega o subactividad está 100% terminado</p>
+                    </article>
+                    <article class="kanban-card">
+                        <p>Sirve para calcular métricas clave del equipo, como el Lead Time y el Cycle Time</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+    </main>
+    <script>
+        // Cambia el contenido visible al elegir una pestaña de Scrum.
+        const scrumTabs = document.querySelectorAll(".scrum-tab");
+        const scrumPanels = document.querySelectorAll(".scrum-panel");
+        scrumTabs.forEach(tab => tab.addEventListener("click", () => {
+            const selectedPanel = tab.dataset.scrumTab;
+            scrumTabs.forEach(item => {
+                const isSelected = item === tab;
+                item.classList.toggle("active", isSelected);
+                item.setAttribute("aria-selected", isSelected);
+                item.tabIndex = isSelected ? 0 : -1;
+            });
+            scrumPanels.forEach(panel => {
+                panel.hidden = panel.dataset.scrumPanel !== selectedPanel;
+            });
+        }));
+        // Permite cambiar de pestaña con las flechas del teclado.
+        document.querySelector(".scrum-tabs").addEventListener("keydown", event => {
+            const currentIndex = Array.from(scrumTabs).indexOf(document.activeElement);
+            if (currentIndex < 0 || !["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+            event.preventDefault();
+            const direction = event.key === "ArrowRight" ? 1 : -1;
+            const nextTab = scrumTabs[(currentIndex + direction + scrumTabs.length) % scrumTabs.length];
+            nextTab.focus();
+            nextTab.click();
+        });
+    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

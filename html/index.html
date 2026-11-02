@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vi cuality</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="home-page">
+
+
+
+    <!-- Encabezado con logo, título y menú. -->
+    <header>
+        <h1>
+            <a class="logo-circle" href="index.html" aria-label="Volver al inicio">
+                <img src="../imagenes/vicuality.png" alt="logo" width="70" height="70">
+            </a>
+            <span class="brand-vi">vi</span> cuality
+        </h1>
+        <!-- Botón que muestra los enlaces. -->
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+
+        <!-- Enlaces de navegación del sitio. -->
+        <nav id="menu">
+            <div class="menu-folder">
+                <button class="menu-folder-toggle" onclick="toggleSubmenu(event)" aria-expanded="false">
+                    Gestion de la calidad <span aria-hidden="true">&#9656;</span>
+                </button>
+                <div class="submenu">
+                    <a href="fundamentos.html">fundamentos</a>
+                    <a href="tecnicas-aseguramiento.html">técnicas de aseguramiento</a>
+                    <a href="herramientas.html">herramientas</a>
+                </div>
+            </div>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="metodologias.html">Metodologías en detalle</a>
+            <a href="recursos-aprendizaje.html">recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JS</a>
+            <a href="secciones-adicionales.html">secciones adicionales</a>
+        </nav>
+    </header>
+
+    <!-- Contenido principal de la página de inicio. -->
+    <main>
+        <h2 class="description-title">Bienvenidos a vi cuality</h2>
+        <h2 class="description-subtitle">Estamos para ayudarte a descubrir conocimientos sobre la gestion de calidad de software, aprender nuevos conceptos y metodologias.</h2>
+
+        <!-- Accesos principales a las páginas del sitio. -->
+        <section class="home-buttons">
+            <a href="index.html">Gestion de la calidad</a>
+            <a href="metodologias.html">Metodologias en detalle</a>
+            <a href="procesos-desarrollo.html">Procesos de desarrollo de software</a>
+            <a href="recursos-aprendizaje.html">Recursos y aprendizaje</a>
+            <a href="funcionalidad-js.html">Funcionalidad adicional JavaScript</a>
+            <a href="index.html">Inicio</a>
+        </section>
+    </main>
+
+    <!-- Enlaces secundarios ubicados en la parte inferior. -->
+    <footer class="bottom-links">
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contactanos</a>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
