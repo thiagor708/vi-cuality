@@ -489,6 +489,12 @@ main {
     padding: 9px 10px;
 }
 
+.home-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .home-buttons a:hover,
 .bottom-links a:hover {
     background: #4169c5;
@@ -2054,12 +2060,140 @@ body.process-page {
     line-height: 1.5;
 }
 
+.scrum-flow-map {
+    position: relative;
+    width: min(100%, 582px);
+    aspect-ratio: 582 / 374;
+    margin: 0 auto;
+}
+
 .scrum-flow-image {
     display: block;
-    width: min(100%, 582px);
-    height: auto;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
+}
+
+.scrum-flow-hotspot {
+    position: absolute;
+    z-index: 1;
+    top: var(--top);
+    left: var(--left);
+    width: var(--width);
+    height: var(--height);
+    padding: 0;
+    border: 0;
+    border-radius: 12%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.scrum-flow-hotspot-retrospective {
+    border-radius: 999px;
+}
+
+.scrum-flow-hotspot:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+    opacity: 1;
+    background: rgba(73, 201, 255, 0.18);
+}
+
+.scrum-flow-tooltip {
+    position: absolute;
+    z-index: 3;
+    width: min(260px, calc(100% - 24px));
+    padding: 12px 30px 12px 14px;
+    border: 3px solid #18baff;
+    border-radius: 12px;
+    color: #fff;
+    background: #080d11;
+    box-shadow: 0 0 16px rgba(24, 186, 255, 0.22);
+    text-align: center;
+}
+
+.scrum-flow-tooltip[hidden] {
+    display: none;
+}
+
+.scrum-flow-tooltip::before,
+.scrum-flow-tooltip::after {
+    position: absolute;
+    left: var(--arrow-left, 50%);
+    width: 0;
+    height: 0;
+    transform: translateX(-50%);
+    content: "";
+}
+
+.scrum-flow-tooltip::after {
+    bottom: -13px;
+    border-top: 12px solid #080d11;
+    border-right: 13px solid transparent;
+    border-left: 13px solid transparent;
+}
+
+.scrum-flow-tooltip::before {
+    bottom: -17px;
+    border-top: 15px solid #18baff;
+    border-right: 16px solid transparent;
+    border-left: 16px solid transparent;
+}
+
+.scrum-flow-tooltip.is-below::before,
+.scrum-flow-tooltip.is-below::after {
+    top: -13px;
+    bottom: auto;
+    border-top: 0;
+}
+
+.scrum-flow-tooltip.is-below::after {
+    border-bottom: 12px solid #080d11;
+    border-right: 13px solid transparent;
+    border-left: 13px solid transparent;
+}
+
+.scrum-flow-tooltip.is-below::before {
+    top: -17px;
+    border-bottom: 15px solid #18baff;
+    border-right: 16px solid transparent;
+    border-left: 16px solid transparent;
+}
+
+.scrum-flow-tooltip h3 {
+    margin: 0 0 5px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.scrum-flow-tooltip p {
+    margin: 0;
+    color: #e6f4ff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.scrum-flow-tooltip-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    width: 23px;
+    height: 23px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #18baff;
+    background: transparent;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.scrum-flow-tooltip-close:focus-visible {
+    outline: 2px solid #fff;
 }
 
 .scrum-process-note {

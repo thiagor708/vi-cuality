@@ -42,7 +42,21 @@
            
                 <h2 id="scrum-title">Scrum en<br>profundidad</h2>
                 <p class="scrum-intro">Un marco de trabajo para crear valor mediante soluciones adaptativas a problemas complejos.</p>
-                <img class="scrum-flow-image" src="../imagenes/scrum-flow.png" alt="Diagrama del ciclo Scrum: Sprint Planning, Sprint, Sprint Review, retrospectiva e incremento del producto">
+                <div class="scrum-flow-map" aria-label="Diagrama interactivo del ciclo Scrum">
+                    <img class="scrum-flow-image" src="../imagenes/scrum-flow.png" alt="Diagrama del ciclo Scrum con los bloques Sprint Backlog, Sprint Planning, duración del Sprint, producto y Sprint Review">
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 1.4%; --top: 40.1%; --width: 14.5%; --height: 20.1%;" aria-label="Ver información sobre Sprint Backlog" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint Backlog" data-description="Reúne el trabajo seleccionado para el Sprint y el plan para alcanzar su objetivo. El equipo lo actualiza a medida que avanza."></button>
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 27%; --top: 40.1%; --width: 14.6%; --height: 20.1%;" aria-label="Ver información sobre Sprint Planning" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint Planning" data-description="Al comienzo del Sprint, el equipo define por qué el Sprint es valioso, qué trabajo puede completar y cómo lo realizará."></button>
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 52.6%; --top: 40.1%; --width: 14.8%; --height: 20.1%;" aria-label="Ver información sobre el Sprint Backlog" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint Backlog" data-description="Es el plan de trabajo visible de los Developers para el Sprint: incluye el objetivo, los elementos elegidos y las tareas necesarias."></button>
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 80.4%; --top: 38%; --width: 16.8%; --height: 22.2%;" aria-label="Ver información sobre la duración del Sprint" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint de 1 a 4 semanas" data-description="Es un periodo de duración fija, de un mes o menos, durante el cual el equipo trabaja para alcanzar un objetivo y crear un incremento de valor."></button>
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 35.7%; --top: 73%; --width: 14.8%; --height: 20.1%;" aria-label="Ver información sobre el producto" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Producto e incremento" data-description="El incremento es un resultado utilizable que se integra al producto y cumple con la Definición de Terminado acordada."></button>
+                    <button class="scrum-flow-hotspot" type="button" style="--left: 67.5%; --top: 73%; --width: 14.7%; --height: 20.1%;" aria-label="Ver información sobre Sprint Review" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint Review" data-description="El equipo y los interesados inspeccionan el resultado del Sprint y conversan sobre los próximos cambios y prioridades del producto."></button>
+                    <button class="scrum-flow-hotspot scrum-flow-hotspot-retrospective" type="button" style="--left: 48.1%; --top: 63.1%; --width: 14.4%; --height: 7.3%;" aria-label="Ver información sobre la retrospectiva del Sprint" aria-haspopup="dialog" aria-controls="scrumFlowTooltip" aria-expanded="false" data-title="Sprint Retrospective" data-description="El equipo reflexiona sobre cómo trabajó durante el Sprint y acuerda mejoras concretas para aplicar en el siguiente."></button>
+                    <div class="scrum-flow-tooltip" id="scrumFlowTooltip" role="dialog" aria-labelledby="scrumFlowTooltipTitle" hidden>
+                        <button class="scrum-flow-tooltip-close" type="button" aria-label="Cerrar descripción">&times;</button>
+                        <h3 id="scrumFlowTooltipTitle"></h3>
+                        <p></p>
+                    </div>
+                </div>
                 <p class="scrum-process-note">Cada Sprint crea una oportunidad para entregar, recibir feedback y mejorar la forma de trabajar.</p>
             </div>
 
@@ -284,6 +298,61 @@
         // Cambia el contenido visible al elegir una pestaña de Scrum.
         const scrumTabs = document.querySelectorAll(".scrum-tab");
         const scrumPanels = document.querySelectorAll(".scrum-panel");
+        const scrumFlowMap = document.querySelector(".scrum-flow-map");
+        const scrumFlowHotspots = Array.from(scrumFlowMap.querySelectorAll(".scrum-flow-hotspot"));
+        const scrumFlowTooltip = document.getElementById("scrumFlowTooltip");
+        const scrumFlowTooltipTitle = document.getElementById("scrumFlowTooltipTitle");
+        const scrumFlowTooltipText = scrumFlowTooltip.querySelector("p");
+        const scrumFlowTooltipClose = scrumFlowTooltip.querySelector(".scrum-flow-tooltip-close");
+        let activeScrumHotspot = null;
+
+        function positionScrumTooltip(hotspot) {
+            const mapWidth = scrumFlowMap.clientWidth;
+            const tooltipWidth = scrumFlowTooltip.offsetWidth;
+            const hotspotCenter = hotspot.offsetLeft + hotspot.offsetWidth / 2;
+            const left = Math.max(8, Math.min(hotspotCenter - tooltipWidth / 2, mapWidth - tooltipWidth - 8));
+            const spaceAbove = hotspot.offsetTop - scrumFlowTooltip.offsetHeight - 18;
+            const isBelow = spaceAbove < 8;
+            scrumFlowTooltip.style.left = `${left}px`;
+            scrumFlowTooltip.style.top = `${isBelow ? hotspot.offsetTop + hotspot.offsetHeight + 18 : spaceAbove}px`;
+            scrumFlowTooltip.style.setProperty("--arrow-left", `${Math.max(18, Math.min(hotspotCenter - left, tooltipWidth - 18))}px`);
+            scrumFlowTooltip.classList.toggle("is-below", isBelow);
+        }
+
+        function closeScrumTooltip(returnFocus = false) {
+            scrumFlowTooltip.hidden = true;
+            scrumFlowHotspots.forEach(hotspot => hotspot.setAttribute("aria-expanded", "false"));
+            const previousHotspot = activeScrumHotspot;
+            activeScrumHotspot = null;
+            if (returnFocus && previousHotspot) previousHotspot.focus();
+        }
+
+        scrumFlowHotspots.forEach(hotspot => hotspot.addEventListener("click", () => {
+            if (activeScrumHotspot === hotspot) {
+                closeScrumTooltip();
+                return;
+            }
+            if (activeScrumHotspot) activeScrumHotspot.setAttribute("aria-expanded", "false");
+            activeScrumHotspot = hotspot;
+            scrumFlowTooltipTitle.textContent = hotspot.dataset.title;
+            scrumFlowTooltipText.textContent = hotspot.dataset.description;
+            scrumFlowTooltip.hidden = false;
+            hotspot.setAttribute("aria-expanded", "true");
+            positionScrumTooltip(hotspot);
+            scrumFlowTooltipClose.focus();
+        }));
+
+        scrumFlowTooltipClose.addEventListener("click", () => closeScrumTooltip(true));
+        scrumFlowMap.addEventListener("click", event => {
+            if (!event.target.closest(".scrum-flow-hotspot, .scrum-flow-tooltip")) closeScrumTooltip();
+        });
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && activeScrumHotspot) closeScrumTooltip(true);
+        });
+        window.addEventListener("resize", () => {
+            if (activeScrumHotspot) positionScrumTooltip(activeScrumHotspot);
+        });
+
         scrumTabs.forEach(tab => tab.addEventListener("click", () => {
             const selectedPanel = tab.dataset.scrumTab;
             scrumTabs.forEach(item => {
