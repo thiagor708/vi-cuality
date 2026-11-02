@@ -293,7 +293,26 @@
             </section>
         </section>
     </main>
+    <dialog class="image-lightbox" id="imageLightbox" aria-label="Imagen ampliada">
+        <button class="image-lightbox-close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+        <img alt="">
+    </dialog>
     <script>
+        // Amplía las ilustraciones sin cambiar el modelo seleccionado.
+        const imageLightbox = document.getElementById("imageLightbox");
+        const lightboxImage = imageLightbox.querySelector("img");
+        document.querySelectorAll(".model-tab img").forEach(image => image.addEventListener("click", event => {
+            event.preventDefault();
+            event.stopPropagation();
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            imageLightbox.showModal();
+        }));
+        imageLightbox.querySelector(".image-lightbox-close").addEventListener("click", () => imageLightbox.close());
+        imageLightbox.addEventListener("click", event => {
+            if (event.target === imageLightbox) imageLightbox.close();
+        });
+
         // Cambia entre los modelos tradicionales.
         document.querySelectorAll(".model-tab").forEach(t => t.addEventListener("click", () => {
             // Actualiza el botón seleccionado y su estado accesible.

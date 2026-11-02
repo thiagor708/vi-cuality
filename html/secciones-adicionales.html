@@ -122,6 +122,73 @@
                 <p class="contact-status" role="status" hidden>El formulario todavía no está conectado a un servicio de envío.</p>
             </form>
         </section>
+        <section class="methodology-survey" aria-labelledby="survey-title">
+            <div class="survey-introduction">
+                <h2 id="survey-title">Encuesta de<br>preferencias<br>metodológicas</h2>
+                <p>Rellená la siguiente encuesta para conocer cuál metodología es la más adecuada para tu proyecto.</p>
+                <img src="../imagenes/fotofundamentos1.jpeg" alt="Persona completando un formulario">
+            </div>
+            <form class="survey-form" id="methodologySurvey">
+                <h3 class="survey-form-title">Encuesta de metodologías</h3>
+                <div class="survey-questions">
+                    <fieldset class="survey-question">
+                        <legend><span class="survey-question-number">1</span><span>¿Cómo afectaría al proyecto un cambio drástico en los requisitos a mitad del desarrollo?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-1" value="A"><span>Sería catastrófico, generaría pérdidas severas de presupuesto y retrasos críticos.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-1" value="B"><span>Requeriría un esfuerzo de reestructuración, pero es totalmente manejable.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-1" value="C"><span>Es algo esperado y normal; el proyecto está diseñado para evolucionar de esa manera.</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">2</span><span>¿Cuál es el nivel de involucramiento y disponibilidad del cliente/Product Owner?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-2" value="A"><span>Baja disponibilidad: solo participará en reuniones clave de aprobación (inicio, hitos mayores y entrega final).</span></label>
+                        <label class="survey-option"><input type="radio" name="question-2" value="B"><span>Disponibilidad moderada: puede revisar avances y dar feedback cada 2 o 3 semanas.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-2" value="C"><span>Alta disponibilidad: está dispuesto a colaborar activamente en el día a día y resolver dudas en tiempo real.</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">3</span><span>¿Cuándo espera el cliente empezar a ver resultados o software funcional?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-3" value="A"><span>Al final del proyecto, cuando todo esté completamente terminado y probado.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-3" value="B"><span>De forma incremental, mediante entregas de módulos funcionales cada pocas semanas.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-3" value="C"><span>De forma continua, priorizando la liberación constante de pequeñas mejoras o correcciones.</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">4</span><span>¿Cuál es el tamaño del equipo de desarrollo asignado a este proyecto?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-4" value="A"><span>Grande (más de 12 personas, posiblemente distribuidas en diferentes áreas o subequipos).</span></label>
+                        <label class="survey-option"><input type="radio" name="question-4" value="B"><span>Mediano/pequeño (entre 3 y 9 personas multidisciplinarias trabajando juntas).</span></label>
+                        <label class="survey-option"><input type="radio" name="question-4" value="C"><span>Muy pequeño o individual (1 o 2 personas gestionando todo el flujo).</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">5</span><span>¿Qué nivel de experiencia tiene el equipo con metodologías ágiles (Scrum, Kanban, XP)?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-5" value="A"><span>Ninguna o muy básica; la organización está acostumbrada a procesos tradicionales y estructurados.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-5" value="B"><span>Tienen nociones teóricas o algunos miembros la conocen, pero no está estandarizada.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-5" value="C"><span>Alta experiencia; el equipo es autónomo, autoorganizado y domina los marcos ágiles.</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">6</span><span>¿Cómo se definen contractualmente el presupuesto y los plazos de entrega?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-6" value="A"><span>Presupuesto y fecha de entrega fijos y rígidos (contrato cerrado).</span></label>
+                        <label class="survey-option"><input type="radio" name="question-6" value="B"><span>Presupuesto flexible basado en el valor entregado o por etapas, con un tiempo estimado de finalización.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-6" value="C"><span>Modelo de suscripción o flujo continuo (se paga por tiempo/materiales o por capacidad del equipo).</span></label>
+                    </fieldset>
+                    <fieldset class="survey-question" hidden>
+                        <legend><span class="survey-question-number">7</span><span>¿El proyecto está sujeto a normativas legales, auditorías estrictas o estándares gubernamentales de documentación?</span></legend>
+                        <label class="survey-option"><input type="radio" name="question-7" value="A"><span>Sí, se requiere documentación técnica detallada y aprobaciones formales en cada fase para cumplir con la ley.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-7" value="B"><span>Moderadamente, se necesita documentación clara pero el software funcionando es la prioridad.</span></label>
+                        <label class="survey-option"><input type="radio" name="question-7" value="C"><span>No, la documentación debe ser mínima y ágil; el foco absoluto es la velocidad de salida al mercado.</span></label>
+                    </fieldset>
+                </div>
+                <p class="survey-error" role="alert" hidden>Elegí una opción para continuar.</p>
+                <div class="survey-result" id="surveyResult" role="status" aria-live="polite" hidden></div>
+                <div class="survey-navigation">
+                    <button class="survey-back" type="button" aria-label="Volver a la pregunta anterior" hidden>←</button>
+                    <span class="survey-progress-label">Pregunta <span id="surveyCurrentStep">1</span> de 7</span>
+                    <button class="survey-next" type="button" aria-label="Ir a la siguiente pregunta">
+                        <svg viewBox="0 0 32 20" aria-hidden="true"><path d="M2 10h25M19 2l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="survey-reset" type="reset" hidden>Volver a empezar</button>
+                </div>
+                <div class="survey-progress-track" role="progressbar" aria-label="Progreso de la encuesta" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0">
+                    <span></span>
+                </div>
+            </form>
+        </section>
     </main>
     <script>
         // Avisa que el formulario todavía no está conectado a un servicio de envío.
@@ -129,6 +196,87 @@
             event.preventDefault();
             document.querySelector(".contact-status").hidden = false;
         });
+
+        const surveyForm = document.getElementById("methodologySurvey");
+        const surveyQuestions = Array.from(surveyForm.querySelectorAll(".survey-question"));
+        const surveyBack = surveyForm.querySelector(".survey-back");
+        const surveyNext = surveyForm.querySelector(".survey-next");
+        const surveyReset = surveyForm.querySelector(".survey-reset");
+        const surveyError = surveyForm.querySelector(".survey-error");
+        const surveyResult = document.getElementById("surveyResult");
+        const surveyCurrentStep = document.getElementById("surveyCurrentStep");
+        const surveyProgress = surveyForm.querySelector(".survey-progress-track");
+        let currentSurveyStep = 0;
+
+        function showSurveyStep(step) {
+            currentSurveyStep = step;
+            surveyQuestions.forEach((question, index) => {
+                question.hidden = index !== step;
+            });
+            surveyCurrentStep.textContent = step + 1;
+            surveyBack.hidden = step === 0;
+            surveyNext.setAttribute("aria-label", step === surveyQuestions.length - 1 ? "Ver resultado de la encuesta" : "Ir a la siguiente pregunta");
+            surveyProgress.setAttribute("aria-valuenow", step);
+            surveyProgress.firstElementChild.style.width = `${(step / surveyQuestions.length) * 100}%`;
+            surveyError.hidden = true;
+        }
+
+        function showSurveyResult() {
+            const scores = { Cascada: 0, Scrum: 0, Kanban: 0 };
+            surveyQuestions.forEach((question, index) => {
+                const answer = surveyForm.querySelector(`input[name="question-${index + 1}"]:checked`);
+                if (!answer) return;
+                const methodology = { A: "Cascada", B: "Scrum", C: "Kanban" }[answer.value];
+                scores[methodology] += 1;
+            });
+
+            const highestScore = Math.max(...Object.values(scores));
+            const recommendations = Object.keys(scores).filter(methodology => scores[methodology] === highestScore);
+            const descriptions = {
+                Cascada: "prioriza la planificación, la documentación y las etapas definidas.",
+                Scrum: "favorece las entregas incrementales, la planificación periódica y la colaboración.",
+                Kanban: "permite gestionar el flujo continuo y adaptarse con flexibilidad a los cambios."
+            };
+            const recommendationText = recommendations.length === 1
+                ? `<strong>Metodología sugerida: ${recommendations[0]}.</strong> ${descriptions[recommendations[0]]}`
+                : `<strong>Tu proyecto puede beneficiarse de combinar ${recommendations.join(" y ")}.</strong> Revisá las prioridades del equipo para elegir el enfoque principal.`;
+
+            surveyResult.innerHTML = `${recommendationText}<span>Resultado orientativo basado en tus respuestas.</span>`;
+            surveyQuestions.forEach(question => { question.hidden = true; });
+            surveyError.hidden = true;
+            surveyBack.hidden = true;
+            surveyNext.hidden = true;
+            surveyReset.hidden = false;
+            surveyCurrentStep.textContent = surveyQuestions.length;
+            surveyProgress.setAttribute("aria-valuenow", surveyQuestions.length);
+            surveyProgress.firstElementChild.style.width = "100%";
+            surveyResult.hidden = false;
+        }
+
+        surveyNext.addEventListener("click", () => {
+            const answer = surveyQuestions[currentSurveyStep].querySelector("input:checked");
+            if (!answer) {
+                surveyError.hidden = false;
+                return;
+            }
+            if (currentSurveyStep === surveyQuestions.length - 1) {
+                showSurveyResult();
+                return;
+            }
+            showSurveyStep(currentSurveyStep + 1);
+        });
+
+        surveyBack.addEventListener("click", () => showSurveyStep(currentSurveyStep - 1));
+        surveyForm.addEventListener("change", () => { surveyError.hidden = true; });
+        surveyForm.addEventListener("reset", () => {
+            window.setTimeout(() => {
+                surveyResult.hidden = true;
+                surveyNext.hidden = false;
+                surveyReset.hidden = true;
+                showSurveyStep(0);
+            });
+        });
+        showSurveyStep(0);
     </script>
     <script src="../js/script.js"></script>
 </body>

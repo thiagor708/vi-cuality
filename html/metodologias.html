@@ -145,6 +145,7 @@
                 <div class="kanban-column">
                     <div class="kanban-column-header">
                         <div><span class="kanban-column-indicator"></span><h3>Por hacer</h3></div>
+                        <span class="kanban-count" aria-label="0 tarjetas">0</span>
                     </div>
                     <article class="kanban-card">
                         <p>en esta seccion se redactan las tareas pendientes en tarjetas individuales</p>
@@ -159,6 +160,7 @@
                 <div class="kanban-column kanban-column-active">
                     <div class="kanban-column-header">
                         <div><span class="kanban-column-indicator"></span><h3>En proceso</h3></div>
+                        <span class="kanban-count" aria-label="0 tarjetas">0</span>
                     </div>
                     <article class="kanban-card">
                         <p>representa el trabajo activo. Incluye todas las tareas en las que alguien ya está trabajando en el momento presente</p>
@@ -173,6 +175,7 @@
                 <div class="kanban-column kanban-column-done">
                     <div class="kanban-column-header">
                         <div><span class="kanban-column-indicator"></span><h3>Hecho</h3></div>
+                        <span class="kanban-count" aria-label="0 tarjetas">0</span>
                     </div>
                     <article class="kanban-card">
                         <p>Esta columna representa el final del flujo de trabajo y reúne todas las tareas que han sido completadas con éxito</p>
@@ -185,9 +188,99 @@
                     </article>
                 </div>
             </section>
+            <p class="kanban-board-status" id="kanbanBoardStatus" aria-live="polite"></p>
         </section>
     </main>
     <script>
+        // Permite mover tarjetas entre columnas con botones o arrastrándolas.
+        const kanbanColumns = Array.from(document.querySelectorAll(".kanban-column"));
+        const kanbanColumnNames = kanbanColumns.map(column => column.querySelector("h3").textContent.trim());
+        const kanbanCards = document.querySelectorAll(".kanban-card");
+        const kanbanBoardStatus = document.getElementById("kanbanBoardStatus");
+
+        function updateKanbanCounts() {
+            kanbanColumns.forEach((column, index) => {
+                const count = column.querySelectorAll(".kanban-card").length;
+                const countLabel = column.querySelector(".kanban-count");
+                countLabel.textContent = count;
+                countLabel.setAttribute("aria-label", `${count} ${count === 1 ? "tarjeta" : "tarjetas"}`);
+                column.dataset.columnIndex = index;
+            });
+        }
+
+        function updateKanbanControls(card) {
+            const columnIndex = Number(card.closest(".kanban-column").dataset.columnIndex);
+            card.querySelectorAll(".kanban-card-move").forEach(button => {
+                const direction = Number(button.dataset.direction);
+                const destinationIndex = columnIndex + direction;
+                button.disabled = destinationIndex < 0 || destinationIndex >= kanbanColumns.length;
+                if (!button.disabled) {
+                    button.setAttribute("aria-label", `Mover tarjeta a ${kanbanColumnNames[destinationIndex]}`);
+                }
+            });
+        }
+
+        function moveKanbanCard(card, destinationIndex) {
+            if (destinationIndex < 0 || destinationIndex >= kanbanColumns.length) return;
+            kanbanColumns[destinationIndex].append(card);
+            updateKanbanControls(card);
+            updateKanbanCounts();
+            kanbanBoardStatus.textContent = `Tarjeta movida a ${kanbanColumnNames[destinationIndex]}.`;
+        }
+
+        kanbanCards.forEach((card, index) => {
+            card.draggable = true;
+            card.dataset.cardId = `kanban-card-${index}`;
+
+            const actions = document.createElement("div");
+            actions.className = "kanban-card-actions";
+            [-1, 1].forEach(direction => {
+                const button = document.createElement("button");
+                button.className = "kanban-card-move";
+                button.type = "button";
+                button.dataset.direction = direction;
+                button.textContent = direction < 0 ? "←" : "→";
+                button.addEventListener("click", () => {
+                    const currentIndex = Number(card.closest(".kanban-column").dataset.columnIndex);
+                    moveKanbanCard(card, currentIndex + direction);
+                });
+                actions.append(button);
+            });
+            card.append(actions);
+            updateKanbanControls(card);
+
+            card.addEventListener("dragstart", event => {
+                event.dataTransfer.setData("text/plain", card.dataset.cardId);
+                event.dataTransfer.effectAllowed = "move";
+                card.classList.add("kanban-card-dragging");
+            });
+            card.addEventListener("dragend", () => {
+                card.classList.remove("kanban-card-dragging");
+                kanbanColumns.forEach(column => column.classList.remove("kanban-column-drop-target"));
+            });
+        });
+
+        kanbanColumns.forEach((column, index) => {
+            column.addEventListener("dragover", event => {
+                event.preventDefault();
+                event.dataTransfer.dropEffect = "move";
+                column.classList.add("kanban-column-drop-target");
+            });
+            column.addEventListener("dragleave", event => {
+                if (!column.contains(event.relatedTarget)) {
+                    column.classList.remove("kanban-column-drop-target");
+                }
+            });
+            column.addEventListener("drop", event => {
+                event.preventDefault();
+                column.classList.remove("kanban-column-drop-target");
+                const cardId = event.dataTransfer.getData("text/plain");
+                const card = document.querySelector(`[data-card-id="${cardId}"]`);
+                if (card) moveKanbanCard(card, index);
+            });
+        });
+        updateKanbanCounts();
+
         // Cambia el contenido visible al elegir una pestaña de Scrum.
         const scrumTabs = document.querySelectorAll(".scrum-tab");
         const scrumPanels = document.querySelectorAll(".scrum-panel");
