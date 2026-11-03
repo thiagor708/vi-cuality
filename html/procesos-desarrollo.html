@@ -86,36 +86,46 @@
     
         <!-- Paneles informativos y botones para comparar modelos tradicionales. -->
         <section class="models-section">
-            <div class="model-panel" id="panel-cascada">
+            <h2 class="models-title">Modelos tradicionales</h2>
+            <div class="model-tabs" role="tablist" aria-label="Seleccionar modelo tradicional">
+                <button class="model-tab active" id="model-tab-cascada" type="button" role="tab" data-model="cascada" aria-controls="panel-cascada" aria-selected="true" tabindex="0">
+                    Modelo en cascada
+                </button>
+                <button class="model-tab" id="model-tab-v" type="button" role="tab" data-model="v" aria-controls="panel-v" aria-selected="false" tabindex="-1">
+                    Modelo en V
+                </button>
+                <button class="model-tab" id="model-tab-iterativo" type="button" role="tab" data-model="iterativo" aria-controls="panel-iterativo" aria-selected="false" tabindex="-1">
+                    Modelo iterativo e incremental
+                </button>
+            </div>
+            <div class="model-panel" id="panel-cascada" role="tabpanel" aria-labelledby="model-tab-cascada">
                 <div class="model-info"><h4>Tipo de enfoque</h4><p>Es un enfoque tradicional de gestión de proyectos caracterizado por un desarrollo secuencial y lineal. El proceso fluye paso a paso a través de fases estrictamente delimitadas, donde cada etapa debe completarse y aprobarse por completo antes de iniciar la siguiente.</p><h4>Proceso del modelo</h4><p>Comienza con el Análisis de Requisitos, donde se definen y documentan todas las necesidades del cliente. A continuación, en el Diseño del Sistema, los arquitectos estructuran la infraestructura técnica, las bases de datos y las interfaces de usuario antes de comenzar a programar.</p><h4>Pruebas</h4><p>En las fases de Implementación y Pruebas, los desarrolladores escriben el código fuente basándose en los diseños previos. Luego, el equipo de QA ejecuta pruebas integrales para detectar y corregir errores antes de entregar el producto.</p><h4>Cuando utilizarlo</h4><p>Es un modelo idóneo para proyectos con requisitos claros, estables y de bajo riesgo de cambio.</p></div>
                 <div class="pc-card pros"><h4>ventajas</h4><ul><li>Claridad y sencillez</li><li>Documentación rigurosa</li><li>Objetivos bien definidos</li><li>Hitos y control claros</li><li>Ideal para requisitos estables</li></ul></div>
                 <div class="pc-card cons"><h4>desventajas</h4><ul><li>Poca flexibilidad al cambio</li><li>No apto para proyectos complejos o dinámicos</li><li>Riesgo acumulado en la fase de pruebas</li><li>Feedback tardío del cliente</li><li>Entrega tardía del producto</li></ul></div>
             </div>
-            <div class="model-panel" id="panel-v" hidden>
+            <div class="model-panel" id="panel-v" role="tabpanel" aria-labelledby="model-tab-v" hidden>
                 <div class="model-info"><h4>Tipo de enfoque</h4><p>Es una extensión del modelo en cascada que asocia cada fase de desarrollo con una fase de pruebas correspondiente, formando una V.</p><h4>Proceso del modelo</h4><p>La rama descendente cubre requisitos, diseño y codificación; la ascendente sube con pruebas unitarias, de integración, de sistema y de aceptación.</p><h4>Pruebas</h4><p>Cada prueba valida lo definido en su fase paralela y se planifica desde el inicio del proyecto.</p><h4>Cuando utilizarlo</h4><p>Es ideal para proyectos con requisitos estables donde la verificación y validación son críticas.</p></div>
                 <div class="pc-card pros"><h4>ventajas</h4><ul><li>Pruebas planificadas desde el inicio</li><li>Detección temprana de defectos</li><li>Verificación y validación claras</li><li>Fácil de gestionar</li><li>Ideal para sistemas críticos</li></ul></div>
                 <div class="pc-card cons"><h4>desventajas</h4><ul><li>Poca flexibilidad al cambio</li><li>Cambiar requisitos es costoso</li><li>No entrega software temprano</li><li>Riesgo si los requisitos fallan</li><li>No apto para proyectos dinámicos</li></ul></div>
             </div>
-            <div class="model-panel" id="panel-iterativo" hidden>
+            <div class="model-panel" id="panel-iterativo" role="tabpanel" aria-labelledby="model-tab-iterativo" hidden>
                 <div class="model-info"><h4>Tipo de enfoque</h4><p>Divide el proyecto en ciclos cortos (iteraciones); en cada uno se entrega un incremento funcional que se suma al producto.</p><h4>Proceso del modelo</h4><p>En cada iteración se repiten análisis, diseño, desarrollo y pruebas, refinando el sistema con lo aprendido en el ciclo anterior.</p><h4>Pruebas</h4><p>Se prueba cada incremento al terminar su iteración, lo que permite corregir errores de forma continua.</p><h4>Cuando utilizarlo</h4><p>Es adecuado cuando los requisitos pueden cambiar o se necesita entregar valor al cliente de forma temprana.</p></div>
                 <div class="pc-card pros"><h4>ventajas</h4><ul><li>Entregas funcionales tempranas</li><li>Flexibilidad ante cambios</li><li>Feedback continuo del cliente</li><li>Riesgos detectados a tiempo</li><li>Mejora progresiva del producto</li></ul></div>
                 <div class="pc-card cons"><h4>desventajas</h4><ul><li>Requiere buena planificación</li><li>Arquitectura difícil de mantener</li><li>Mayor costo de gestión</li><li>Puede crecer sin control</li><li>Exige participación constante</li></ul></div>
             </div>
-            <!-- Cada botón muestra la ilustración y el panel del modelo elegido. -->
-            <h2 class="models-title">Ilustraciones de<br>modelos tradicionales</h2>
-            <div class="model-tabs">
-                <button class="model-tab active" data-model="cascada" aria-controls="panel-cascada" aria-selected="true">
-                    <span class="model-tab-title">modelo en cascada</span>
+            <div class="model-illustrations" aria-label="Diagramas de los modelos tradicionales">
+                <figure class="model-illustration">
                     <img src="../imagenes/modelo-cascada.png" alt="Diagrama del modelo en cascada">
-                </button>
-                <button class="model-tab" data-model="v" aria-controls="panel-v" aria-selected="false">
-                    <span class="model-tab-title">modelo en V</span>
+                    <figcaption>Modelo en cascada</figcaption>
+                </figure>
+                <figure class="model-illustration">
                     <img src="../imagenes/modelo-v.png" alt="Diagrama del modelo en V">
-                </button>
-                <button class="model-tab" data-model="iterativo" aria-controls="panel-iterativo" aria-selected="false">
-                    <span class="model-tab-title">modelo iterativo<br>e incremental</span>
+                    <figcaption>Modelo en V</figcaption>
+                </figure>
+                <figure class="model-illustration">
                     <img src="../imagenes/modelo-iterativo.png" alt="Diagrama del modelo iterativo e incremental">
-                </button>
+                    <figcaption>Modelo iterativo e incremental</figcaption>
+                </figure>
             </div>
         </section>
         <!-- Resumen de los valores y principios ágiles. -->
@@ -316,7 +326,7 @@
         // Amplía las ilustraciones sin cambiar el modelo seleccionado.
         const imageLightbox = document.getElementById("imageLightbox");
         const lightboxImage = imageLightbox.querySelector("img");
-        document.querySelectorAll(".model-tab img").forEach(image => image.addEventListener("click", event => {
+        document.querySelectorAll(".model-illustration img").forEach(image => image.addEventListener("click", event => {
             event.preventDefault();
             event.stopPropagation();
             lightboxImage.src = image.src;
@@ -328,16 +338,34 @@
             if (event.target === imageLightbox) imageLightbox.close();
         });
 
-        // Cambia entre los modelos tradicionales.
-        document.querySelectorAll(".model-tab").forEach(t => t.addEventListener("click", () => {
-            // Actualiza el botón seleccionado y su estado accesible.
-            document.querySelectorAll(".model-tab").forEach(x => {
-                const isActive = x === t;
-                x.classList.toggle("active", isActive);
-                x.setAttribute("aria-selected", isActive);
+        // Cambia las descripciones y ventajas del modelo seleccionado.
+        const modelTabs = Array.from(document.querySelectorAll(".model-tab"));
+        const modelPanels = document.querySelectorAll(".model-panel");
+        function selectTraditionalModel(selectedTab) {
+            modelTabs.forEach(tab => {
+                const isSelected = tab === selectedTab;
+                tab.classList.toggle("active", isSelected);
+                tab.setAttribute("aria-selected", isSelected);
+                tab.tabIndex = isSelected ? 0 : -1;
             });
-            document.querySelectorAll(".model-panel").forEach(x => x.hidden = x.id !== "panel-" + t.dataset.model);
-        }));
+            modelPanels.forEach(panel => {
+                panel.hidden = panel.id !== selectedTab.getAttribute("aria-controls");
+            });
+        }
+
+        modelTabs.forEach(tab => tab.addEventListener("click", () => selectTraditionalModel(tab)));
+        document.querySelector(".model-tabs").addEventListener("keydown", event => {
+            const currentIndex = modelTabs.indexOf(document.activeElement);
+            if (currentIndex < 0 || !["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+            event.preventDefault();
+            const nextIndex = event.key === "Home"
+                ? 0
+                : event.key === "End"
+                    ? modelTabs.length - 1
+                    : (currentIndex + (event.key === "ArrowRight" ? 1 : -1) + modelTabs.length) % modelTabs.length;
+            modelTabs[nextIndex].focus();
+            selectTraditionalModel(modelTabs[nextIndex]);
+        });
     </script>
     <script>
         // Cambia entre las secciones de metodologías ágiles.

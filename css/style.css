@@ -724,6 +724,25 @@ body.fundamentals-page { overflow-y: auto; }
     text-align: center;
 }
 
+.fundamentals-toggle {
+    padding: 0;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.fundamentals-toggle:focus-visible {
+    border-radius: 12px;
+    outline: 2px solid #65b8ff;
+    outline-offset: 4px;
+}
+
+.fundamentals-description[hidden] {
+    display: none;
+}
+
 .fundamentals-cards h4 { font-size: 14px; font-weight: 700; margin: 0 0 3px; }
 .fundamentals-cards p {
     font-size: 10.5px;
@@ -1442,7 +1461,7 @@ body.process-page {
     font-size: clamp(22px, 3.4vw, 36px);
     font-weight: 800;
     line-height: 1.05;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
     text-shadow: 0 0 10px rgba(57, 159, 255, 0.95), 0 0 26px rgba(57, 159, 255, 0.7);
 }
@@ -1450,57 +1469,32 @@ body.process-page {
 .model-tabs {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 7vw;
+    width: min(100%, 760px);
+    gap: clamp(12px, 4vw, 40px);
+    align-self: center;
 }
 
 .model-tab {
     justify-self: center;
-    align-self: start;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: min(100%, 240px);
-    min-height: 252px;
-    padding: 0 0 12px;
-    overflow: hidden;
-    border: 0;
-    border-radius: 10px;
-    color: #fff;
-    background: #fff;
-    box-shadow: 0 8px 22px rgba(255, 255, 255, 0.18);
+    width: min(100%, 190px);
+    min-height: 42px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 9px;
+    color: #3472ff;
+    background: #080d11;
     font: inherit;
-    font-size: clamp(16px, 1.6vw, 22px);
+    font-size: clamp(12px, 1.2vw, 15px);
     font-weight: 700;
     cursor: pointer;
     text-align: center;
+    transition: color 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
 }
 
-.model-tab-title {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    min-height: 41px;
-    padding: 4px 8px;
-    border-radius: 10px 10px 7px 7px;
+.model-tab.active {
     color: #fff;
-    background: #3266ed;
-    font-size: clamp(14px, 1.5vw, 18px);
-    line-height: 1.1;
-}
-
-.model-tab img {
-    display: block;
-    width: calc(100% - 32px);
-    height: 130px;
-    margin-top: 2px;
-    border: 1px solid #d7d7d7;
-    border-radius: 10px;
-    background: #fff;
-    object-fit: contain;
-}
-
-.model-tab.active .model-tab-title {
-    background: #3266ed;
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.24);
 }
 
 .model-tab:focus-visible {
@@ -1508,8 +1502,38 @@ body.process-page {
     outline-offset: 4px;
 }
 
-.model-tab img {
+.model-illustrations {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    width: min(100%, 760px);
+    align-self: center;
+}
+
+.model-illustration {
+    min-width: 0;
+    margin: 0;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 10px;
+    background: rgba(8, 14, 19, 0.72);
+}
+
+.model-illustration img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-radius: 6px;
+    background: #fff;
+    object-fit: contain;
     cursor: zoom-in;
+}
+
+.model-illustration figcaption {
+    margin-top: 7px;
+    color: #c8d7e8;
+    font-size: 11px;
+    text-align: center;
 }
 
 .image-lightbox {
@@ -1760,23 +1784,30 @@ body.process-page {
     .model-tabs {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 6px;
+        gap: 8px;
     }
 
     .model-tab {
         width: 100%;
-        min-height: 220px;
-        padding-bottom: 8px;
+        min-height: 42px;
+        padding: 7px 5px;
+        font-size: 11px;
     }
 
-    .model-tab-title {
-        min-height: 44px;
-        font-size: clamp(10px, 2.5vw, 15px);
+    .model-illustrations {
+        gap: 8px;
     }
 
-    .model-tab img {
-        width: calc(100% - 12px);
-        height: 110px;
+    .model-illustration {
+        padding: 5px;
+    }
+
+    .model-illustration img {
+        height: 75px;
+    }
+
+    .model-illustration figcaption {
+        font-size: 9px;
     }
 
     .model-panel {
@@ -1916,18 +1947,23 @@ body.process-page {
     }
 
     .model-tab {
-        min-height: 252px;
-        max-width: none;
+        width: min(100%, 300px);
+        justify-self: center;
+        font-size: 14px;
     }
 
-    .model-tab-title {
-        min-height: 41px;
-        font-size: 16px;
+    .model-illustrations {
+        grid-template-columns: 1fr;
+        width: min(100%, 360px);
+        gap: 12px;
     }
 
-    .model-tab img {
-        width: calc(100% - 32px);
+    .model-illustration img {
         height: 130px;
+    }
+
+    .model-illustration figcaption {
+        font-size: 11px;
     }
 
     .model-panel {
@@ -2914,10 +2950,41 @@ body.process-page {
     background: #3467ed;
 }
 
-.glossary-card h3 {
+.glossary-card summary {
+    display: flex;
     min-height: 41px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
     padding: 8px 7px;
     border-bottom: 2px solid #fff;
+    cursor: pointer;
+    list-style: none;
+}
+
+.glossary-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.glossary-card summary::after {
+    flex: 0 0 auto;
+    content: "+";
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.glossary-card[open] summary::after {
+    content: "-";
+}
+
+.glossary-card summary:focus-visible {
+    outline: 2px solid #80dfff;
+    outline-offset: -3px;
+}
+
+.glossary-card h3 {
+    flex: 1;
+    min-height: 41px;
     color: #fff;
     font-size: clamp(13px, 1.15vw, 17px);
     font-weight: 800;
